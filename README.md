@@ -50,7 +50,6 @@
     - [5.2 引脚线序说明]()
 
 ## 功能与应用
-  - [5 工作原理]()
   - [6 组装穿戴步骤](4-FunctionsAndApplications/6-SDKDevelopment/6.1-S570/Wayofwearing.md)
   - [7 SDK开发方式](4-FunctionsAndApplications/6-SDKDevelopment/README.md)
     - [7.1 基于 python 开发使用](4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download.md)
