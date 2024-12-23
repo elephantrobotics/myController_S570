@@ -1,8 +1,8 @@
-# 遥操控制机械臂案例
+# Remote control robot arm case
 
-###  mercury X1(7轴)
+### mercury X1(7 axes)
 
-双臂协同控制
+Dual-arm cooperative control
 
 ```python
 import threading
@@ -13,15 +13,15 @@ obj = exoskeleton(port="/dev/ttyACM4")
 ml = Mercury("/dev/left_arm")
 mr = Mercury("/dev/right_arm")
 
-# 设置双臂为速度融合模式
+# Set both arms to speed fusion mode
 ml.set_movement_type(2)
 mr.set_movement_type(2)
-# 设置夹爪运行模式
+# Set the jaw operation mode
 ml.set_gripper_mode(0)
 mr.set_gripper_mode(0)
 
 
-# 0 左臂，1 右臂
+#0 left arm, 1 right arm
 def control_arm(arm):
     while True:
         if arm == 0:
@@ -34,12 +34,12 @@ def control_arm(arm):
             mc = mr
         else:
             raise ValueError("error arm")
-        # 由于外骨骼各关节转向、零点与部分机械臂构型不同，在此设置映射关系(根据各关节实际控制转向、位置设置)
+        # Due to the different configurations of each joint steering, zero point and part of the robot arm of the exoskeleton, the mapping relationship is set here (according to the actual steering and position setting of each joint).
         mercury_list = [
             arm_data[0], -arm_data[1], arm_data[2], -arm_data[3], arm_data[4],
             135 + arm_data[5], arm_data[6]
         ]
-        # 按键按下控制夹爪开闭
+        # Press the button to control the opening and closing of the claw
         if arm_data[7] == 0:
             mc.set_gripper_state(1, 100)  
         elif arm_data[8] == 0:
@@ -47,9 +47,9 @@ def control_arm(arm):
         mc.send_angles(mercury_list, 6)
 
 
-# 左臂
+# Left arm
 threading.Thread(target=control_arm, args=(0, )).start()
-# 右臂
+# Right arm
 threading.Thread(target=control_arm, args=(1, )).start()
 ```
 
@@ -57,4 +57,4 @@ threading.Thread(target=control_arm, args=(1, )).start()
 ---
 
 
-[← 上一页](2_API.md) | [下一页 →](4_tracer_API.md)
+[← Previous](2_API.md) | [Next page →](4_tracer_API.md)

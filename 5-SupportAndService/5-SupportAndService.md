@@ -1,74 +1,76 @@
-# 大象机器人
+# Elephant Robotics
 
 ![alt text](../resources/5-SupportAndService/公司介绍.png)
 
-## 1. 公司介绍
+## 1. Company Introduction
 
-大象机器人(Elephant Robotics)立足于中国·深圳，是一家专注于机器人研发设计及自动化解决方案的高新科技企业。
+Elephant Robotics, based in Shenzhen, China, is a high-tech enterprise focused on robotics R&D, design, and automation solutions.
 
-我们致力于为机器人教育及科研机构、商业场景、工业生产提供高柔性的协作机器人、简单易学的操作系统以及智能的自动化解决方案。其产品质量及智慧方案备受韩国、日本、美国、德国、意大利、希腊等数家来自世界 500 强名企工厂的一致认可与好评。
+We are committed to providing flexible collaborative robots, easy-to-learn operating systems, and intelligent automation solutions for robotic education and research institutions, commercial scenarios, and industrial production. Our product quality and smart solutions are highly recognized and praised by world-renowned Fortune 500 companies in countries like South Korea, Japan, the United States, Germany, Italy, and Greece.
 
-大象机器人秉持“Enjoy Robots World”的愿景，倡导人与机器人的协同工作，让机器人成为人类工作生活的好帮手，帮助人们从简单、重复、枯燥的工作中解放出来，充分发挥人机协同优势，进而提高工作效率，帮助人类缔造美好新生活。
+Elephant Robotics adheres to the vision of "Enjoy Robots World," advocating for human-robot collaboration. Our goal is to make robots an excellent assistant to human work and life, helping people break free from simple, repetitive, and tedious tasks, fully leveraging the advantages of human-robot collaboration, thereby improving work efficiency and helping create a better life for humanity.
 
-未来，大象机器人希望通过新一代尖端科技推动机器人产业发展，携手与客户伙伴们共同开启自动化智能化新时代。
+In the future, Elephant Robotics hopes to drive the development of the robotics industry through next-generation cutting-edge technology, working hand in hand with partners to usher in a new era of automation and intelligence.
 
 ---
 
 ![alt text](../resources/5-SupportAndService/公司历程.jpg)
 
-## 2. 发展历程
+## 2. Development History
 
-  - 2016.08 -----大象机器人有限公司正式成立
-  - 2016.08 -----进入 HAX 孵化器，获得 SOSV 种子轮投资
-  - 2016.08 ----- 开始研发 Elephant S 工业协作机器人
-  - 2017.01 -----获评 “CES 中国最具创新企业 Top10”
-  - 2017.04 -----出席汉诺威工业博览会及韩国自动化展览会
-  - 2017.07 -----两位创始人入选福布斯亚洲评选的“30 位 30 岁以下商业精英”
-  - 2017.10 -----第五代单臂工业协作机器人 Elephant S 问世
-  - 2018.04 -----获得”云天使基金”天使轮投资
-  - 2018.06 -----首次公开亮相 2018 年汉诺威世界工业博览会
-  - 2018.06 -----获得长江商学院“智造创业 MBA 奖”
-  - 2018.06 -----获得清华经管“创业加速器 X-elerator 奖”
-  - 2018.11 -----获得亚洲智能硬件大赛深圳赛区第二名
-  - 2018.11 -----获得高工金球奖“最具投资企业奖”
-  - 2019.03 -----获得高工金球奖“领军人物奖”
-  - 2019.04 -----2019 年 3 月 Catbot 获“工业机器人创新奖”
-  - 2019.09 -----出席华为欧洲生态大会(HCE)，正式成为华为生态伙伴一员
-  - 2019.11 -----大象机器人携手哈工大出席 IROS 国际智能机器人与系统大会
-  - 2019.12 -----大象机器人-华南理工大学“智能机器人联合开发实验室”正式揭牌
-  - 2019.12 -----荣获高工 2019 年度“创新技术奖”
-  - 2019.12 -----荣获高工 2019 年度“十大快速成长企业”
-  - 2019.12 -----荣获深圳装备工业-工业机器人细分领域-“新锐企业奖”
-  - 2019.12 -----世界首款仿生机器猫 MarsCat 问世
-  - 2020.05 -----创始人获得 2019 年度深圳市机器人新锐人物奖
-  - 2020.10 -----全球最轻最小的六轴协作机器人 myCobot 问世
-  - 2021.03 -----面向科研的最小协作机器人 myCobotPro 320 问世
-  - 2021.05 -----火星仿生猫 MarsCat 获得新华财经、中国日报、南京日报、哈尔滨日报等多家媒体的竞相报道
-  - 2021.07 -----发布最小的复合机器人底盘 – 小象移动机器人 myAGV
-  - 2021.09 -----全球首款全包裹式的四轴机械臂-小象码垛机械臂 myPalletizer 问世
+  - 2016.08 ----- Elephant Robotics Co., Ltd. was officially established
+  - 2016.08 ----- Entered HAX incubator, received SOSV seed funding
+  - 2016.08 ----- Started developing Elephant S industrial collaborative robots
+  - 2017.01 ----- Ranked among the "Top 10 Most Innovative Companies in China at CES"
+  - 2017.04 ----- Attended Hannover Industrial Expo and Korea Automation Exhibition
+  - 2017.07 ----- Two founders were selected for Forbes Asia's "30 Under 30"
+  - 2017.10 ----- Released the fifth-generation single-arm industrial collaborative robot, Elephant S
+  - 2018.04 ----- Received angel round investment from Yun Tian Shi Fund
+  - 2018.06 ----- Made its first public appearance at the 2018 Hannover World Industrial Expo
+  - 2018.06 ----- Awarded the "Smart Manufacturing Entrepreneur MBA Award" from Cheung Kong Graduate School of Business
+  - 2018.06 ----- Awarded the "Entrepreneur Accelerator X-elerator Award" from Tsinghua University School of Economics and Management
+  - 2018.11 ----- Ranked second in the Shenzhen division of the Asian Smart Hardware Competition
+  - 2018.11 ----- Won the "Most Investment-Worthy Enterprise Award" at the Gaogong Golden Globe Awards
+  - 2019.03 ----- Won the "Leading Talent Award" at the Gaogong Golden Globe Awards
+  - 2019.04 ----- Catbot won the "Industrial Robot Innovation Award" in March 2019
+  - 2019.09 ----- Attended Huawei European Ecosystem Conference (HCE), officially becoming a Huawei ecosystem partner
+  - 2019.11 ----- Elephant Robotics and Harbin Institute of Technology attended IROS International Symposium on Intelligent Robots and Systems
+  - 2019.12 ----- Officially opened the "Smart Robotics Joint Development Lab" with South China University of Technology
+  - 2019.12 ----- Won the "Innovative Technology Award" at Gaogong in 2019
+  - 2019.12 ----- Won the "Top 10 Rapidly Growing Enterprises" Award at Gaogong in 2019
+  - 2019.12 ----- Won the "Rising Star Enterprise Award" in the industrial robot sector at Shenzhen Equipment Industry
+  - 2019.12 ----- Released the world's first bionic robotic cat, MarsCat
+  - 2020.05 ----- Founder received the "Rising Star of Shenzhen Robotics 2019" Award
+  - 2020.10 ----- Released the world's lightest and smallest six-axis collaborative robot, myCobot
+  - 2021.03 ----- Released the smallest collaborative robot for scientific research, myCobotPro 320
+  - 2021.05 ----- MarsCat received extensive media coverage, including from Xinhua Finance, China Daily, Nanjing Daily, and Harbin Daily
+  - 2021.07 ----- Released the smallest composite robot chassis – myAGV mobile robot
+  - 2021.09 ----- Released the world’s first fully enclosed four-axis robotic arm – myPalletizer
 
-## 3. 相关链接  
-#### 购买链接
-  - 淘宝：https://shop504055678.taobao.com
-  - Shopify： https://shop.elephantrobotics.com/
-  - 速卖通：https://elephantrobotics.aliexpress.com/store/1101941423
-#### 其他信息
-- 官网： https://www.elephantrobotics.com
-- 视频
-  - Bilibili： https://space.bilibili.com/2126215657
-  - Youtube： https://www.youtube.com/c/Elephantrobotics
-- Facebook： https://www.facebook.com/mycobotcreator/
-- Linkedin： https://www.linkedin.com/company/18319865
-- X (Twitter)： https://twitter.com/CobotMy
-- Discord： https://discord.gg/2MAherp7nt
-- Hackster： https://www.hackster.io/elephant-robotics
+## 3. Relevant Links  
 
-## 4. 联系我们
+#### Purchase Links
+  - Taobao: https://shop504055678.taobao.com
+  - Shopify: https://shop.elephantrobotics.com/
+  - AliExpress: https://elephantrobotics.aliexpress.com/store/1101941423
+
+#### Other Information
+- Official Website: https://www.elephantrobotics.com
+- Videos
+  - Bilibili: https://space.bilibili.com/2126215657
+  - YouTube: https://www.youtube.com/c/Elephantrobotics
+- Facebook: https://www.facebook.com/mycobotcreator/
+- LinkedIn: https://www.linkedin.com/company/18319865
+- X (Twitter): https://twitter.com/CobotMy
+- Discord: https://discord.gg/2MAherp7nt
+- Hackster: https://www.hackster.io/elephant-robotics
+
+## 4. Contact Us
 ---
 
-> 我们的工作时间为中国工作日，北京时间上午 10 点至下午 6 点。
+> Our working hours are Monday to Friday, 10:00 AM to 6:00 PM (Beijing Time).
 
-  - 如果您有任何其他问题，请通过以下方式联系我们。  
+  - If you have any other questions, please contact us through the following methods:  
 [E-mail](support@elephantrobotics.com) :
 
 <pre>
@@ -76,7 +78,7 @@
 support@elephantrobotics.com
 </code>
 </pre>
-  - 如果您有购买意向或任何参数问题，请发送电子邮件至此邮箱。  
+  - If you have purchase intentions or any questions about parameters, please email us at:  
 [E-mail](sales@elephantrobotics.com) :
 
 <pre>
@@ -85,7 +87,7 @@ sales@elephantrobotics.com
 </code>
 </pre>
 
-  - 如果列出的问题无法帮助您解决，而您又有更多的售后问题，请向本邮箱发送电子邮件。  
+  - If the listed problems don't resolve your issue, and you have additional after-sales questions, please email us at this address:  
 [E-mail](support@elephantrobotics.com) :
 
 <pre>
@@ -94,13 +96,13 @@ support@elephantrobotics.com
 </code>
 </pre>
 
-我们将在 1-2 个工作日内给予答复；
+We will respond within 1-2 working days.
 
-**微信**:  
-我们只为通过微信购买 myArm M&C 系列产品的用户提供一对一服务。
+**WeChat**:  
+We provide one-on-one service only to users who purchase myArm M&C series products via WeChat.
 
 ![alt text](../resources/5-SupportAndService/WeChat-Code.jpg)
 
 ---
 
-[← 上一章](../4-FunctionsAndApplications/7-SuccessfulCases/7-SuccessfulCases.md) | [下一章 →](../6-Acknowledgments/6-Acknowledgments.md)
+[← Previous Chapter](../4-FunctionsAndApplications/7-SuccessfulCases/7-SuccessfulCases.md) | [Next Chapter →](../6-Acknowledgments/6-Acknowledgments.md)

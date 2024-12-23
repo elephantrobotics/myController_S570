@@ -1,6 +1,6 @@
-# MyController S570 控制AGV+280M5程序案例
-### 将外骨骼通过USB的方式连接上AGV上的Jetson Nano系统，并保存运行以下脚本文件。
-**注意：确保每个串口号对应的设备是正确的**
+# MyController S570 Control AGV+280M5 program case
+Connect the exoskeleton to the Jetson Nano system on the AGV via USB and save and run the following script file.
+**Note: Make sure each serial number corresponds to the correct device**
 
 
 ```bash
@@ -61,7 +61,7 @@ def move(x, y):
         #map_navigation.stop()
 
 
-# 0 左臂，1 右臂
+# 0 left arm, 1 right arm
 def control_arm(arm):
     while True:
         if arm == 0:
@@ -92,13 +92,13 @@ def control_arm(arm):
             Pump_testing_close()
         mc.send_angles(mercury_list, 100)
 
-# 外骨骼右臂控制 AGV+280M5
+# The right arm of the exoskeleton controls AGV+280M5
 threading.Thread(target=control_arm, args=(1, )).start()
 
 
 ```
 
-### 程序成功运行之后即可用外骨骼控制AGV+280M5
+### The AGV+280M5 can be controlled with the exoskeleton after the program has been successfully run
 <video src="../../resources/7-SuccessfulCases/s570.mp4" controls="controls" width="800" height="500"></video>
 
 

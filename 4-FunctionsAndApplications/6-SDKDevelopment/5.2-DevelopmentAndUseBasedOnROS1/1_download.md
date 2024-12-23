@@ -1,140 +1,141 @@
 # MyController S570
-## 在Linux中安装不同版本的ubuntu系统
-### 1 虚拟机安装
+## Installing Different Versions of Ubuntu System on Linux
+### 1 Virtual Machine Installation
 
-前往[官方网站](https://www.virtualbox.org/wiki/Downloads)下载虚拟机Virtual Box 或者前往[官方网站](https://www.vmware.com/products/desktop-hypervisor.html)下载虚拟机 VM ware
+Go to the [official website](https://www.virtualbox.org/wiki/Downloads) to download the VirtualBox virtual machine or visit the [official website](https://www.vmware.com/products/desktop-hypervisor.html) to download the VM Ware virtual machine.
 
-当然，如果您已经拥有您的虚拟机，您可以跳过该步骤。  
-我们选择下载Virtual box，因为它是免费的。
+Of course, if you already have a virtual machine, you can skip this step.  
+We choose to download VirtualBox because it is free.
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/box.png" alt="7.1.1-1" style="zoom:0%;" />
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/box2.gif" alt="7.1.1-1" style="zoom:0%;" />
 
-### 2 新建虚拟机
-#### 2.1 创建虚拟机
+### 2 Create a Virtual Machine
+#### 2.1 Create a Virtual Machine
 
-**在控制中选择新建**  
-输入虚拟机名称和虚拟机存放的位置，选择虚拟机类型为Linux，选择ubuntu64位版本，进行下一步。
+**Select "New" in the control panel**  
+Enter the name of the virtual machine and the location to store it, select the virtual machine type as Linux, and choose the 64-bit Ubuntu version, then proceed to the next step.  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vbox-1.jpg" alt="7.1.1-1" style="zoom:0%;" />
 
-按照自己的需求配置内存大小，进行下一步。  
+Configure the memory size according to your needs and proceed to the next step.  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vbox-4.jpg" alt="7.1.1-1" style="zoom:0%;" />
 
-选择现在**创建虚拟硬盘**，进行创建。   
+Select **Create a Virtual Hard Disk Now**, and proceed to create.  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vbox-5.jpg" alt="7.1.1-1" style="zoom:0%;" />
 
-虚拟硬盘类型选择**VDI**类型，进行下一步。  
+Choose the **VDI** type for the virtual hard disk, then proceed to the next step.  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vbox-6.jpg" alt="7.1.1-1" style="zoom:0%;" />
 
-分配虚拟硬盘大小，由于需要安装ubuntu系统，而且还会在该系统中进行操作，建议大小不要低于20G。   
+Allocate the virtual hard disk size. Since you need to install the Ubuntu system and will be performing operations within this system, it is recommended to set the size to no less than 20GB.  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vbox-7.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vbox-8.jpg" alt="7.1.1-1" style="zoom:0%;" />
 
-#### 2.2 导入ubuntu系统
-##### 2.2.1 下载ubuntu系统。
+#### 2.2 Import Ubuntu System
+##### 2.2.1 Download Ubuntu System.
 
-请根据自己的需要选择ubuntu版本进行安装
+Choose the Ubuntu version according to your needs for installation.
 
-注意： ROS2需要下载20.04版本。  
-> [16.04版本](https://releases.ubuntu.com/16.04.7/)  
-> [18.04版本](https://releases.ubuntu.com/18.04.6/)  
-> [20.04版本](https://old-releases.ubuntu.com/releases/20.04.3/)
+Note: ROS2 requires the 20.04 version.  
+> [16.04 Version](https://releases.ubuntu.com/16.04.7/)  
+> [18.04 Version](https://releases.ubuntu.com/18.04.6/)  
+> [20.04 Version](https://old-releases.ubuntu.com/releases/20.04.3/)
 
-**三种版本的安装方法和过程都是相同的，这里以18.04版本作为例子进行安装**  
+**The installation method and process for the three versions are the same. Here, we will use the 18.04 version as an example.**  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/u-1.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 
-下载完成后有如图文件：  
+After downloading, you will have the following file:  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/u-2.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 
-##### 2.2.2 导入ubuntu到虚拟机中
+##### 2.2.2 Import Ubuntu into the Virtual Machine
 
-在Virtual box中找到之前安装的虚拟机，进入**设置**，并在**存储**中给控制器分配光盘：
+Find the virtual machine you previously installed in VirtualBox, go to **Settings**, and assign a disk controller under **Storage**:  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vbox-2.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vbox4.jpg" alt="7.1.1-1" style="zoom:0%;" />  
-然后打开虚拟机进行ubuntu安装，并点击启动。  
+Then open the virtual machine to start the Ubuntu installation and click Start.
 
-##### 2.2.3 ubuntu安装
+##### 2.2.3 Ubuntu Installation
 
-等待系统启动，进入**欢迎**界面，选中“中文（简体）”，并点击“安装 Ubuntu”按钮；
+Wait for the system to boot, and when the **Welcome** screen appears, select "Chinese (Simplified)" and click the "Install Ubuntu" button;  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-1.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 
-点击“继续”按钮；  
+Click the "Continue" button;  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-2.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 
-选中“清除整个磁盘并安装 Ubuntu”选项，点击“现在安装”按钮；
+Select "Erase disk and install Ubuntu", and click the "Install Now" button;  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-3.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 
-在弹出的对话框中点击“继续”按钮；  
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-4.jpg" alt="7.1.1-1" style="zoom:98%;" />   
+Click the "Continue" button in the dialog box that pops up;  
+<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-4.jpg" alt="7.1.1-1" style="zoom:98%;" />  
 
-设置地理位置，点击“继续”按钮；  
+Set the geographical location and click the "Continue" button;  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-5.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 
-设置用户名和密码，点击“继续”按钮；  
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-6.jpg" alt="7.1.1-1" style="zoom:0%;" />   
+Set the username and password, and click the "Continue" button;  
+<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-6.jpg" alt="7.1.1-1" style="zoom:0%;" />  
 
-进入系统安装界面，请耐心等待；  
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-7.jpg" alt="7.1.1-1" style="zoom:100%;" />    
+Wait for the system to install; please be patient.  
+<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-7.jpg" alt="7.1.1-1" style="zoom:100%;" />  
 
-待安装完成，在弹出的对话框中，点击“现在重启”按钮，完成安装。  
+Once installation is complete, click the "Restart Now" button in the dialog box to finish the installation.  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/uit-8.jpg" alt="7.1.1-1" style="zoom:155%;" />
 
 
 
 
-##  3 ROS 环境搭建
-### 3.1 ROS 安装
 
-基本的开发环境搭建需要安装机器人操作系统 ROS、MoveIt 以及 git 版本管理器，以下分别介绍其安装方法及流程。
+## 3 ROS environment construction
+### 3.1 ROS installation
 
-### 3.1.1 版本选择
+The basic development environment needs to install the robot operating system ROS, MoveIt and git version manager. The following describes the installation methods and processes respectively.
 
-ROS 跟 ubuntu 有一一对应的关系，不同版本的 ubuntu 对应不同版本的 ROS，参考网站见下：  http://wiki.ros.org/Distributions
+3.1.1 version selection
 
-这里给出对应Ubuntu支持的 ROS 版本:  
-        Ubuntu 16.04 / ROS Kinetic  
-        Ubuntu 18.04 / ROS Melodic  
-        Ubuntu 20.04 / ROS Noetic  
+ROS have one-to-one relationship with ubuntu, different versions of ubuntu correspond to different versions of the ROS, reference website below: http://wiki.ros.org/Distributions
 
-**请根据自己安装的Ubuntu版本进行对应ROS版本的安装**
+Here are the ROS versions that Ubuntu supports:
+Ubuntu 16.04 / ROS Kinetic
+Ubuntu 18.04 / ROS Melodic
+Ubuntu 20.04 / ROS Noetic
 
-如果版本不同，下载将会失败.在这里我们选择的系统为
- Ubuntu 18.04, 对应 ROS 版本为 ROS Melodic
+** Please install the ROS version according to the Ubuntu version you have installed **
 
-NOTE: 目前我们不提供 windows 安装 ROS 的任何参考, 若有需要请参考 [https://www.ros.org/install/](https://www.ros.org/install/)
+If the version is different, the download will fail. Here we choose the system as
+Ubuntu 18.04, corresponding to ROS version ROS Melodic
+
+NOTE: currently, we do not provide any references to Windows installation ROS, if necessary, please refer to [https://www.ros.org/install/] (https://www.ros.org/install/)
 
 
 
-## 3.1.2 开始安装
-### 1 添加源
+## 3.1.2 Start installation
+### 1 Add source
 
-Ubuntu 本身的软件源列表中没有 ROS 的软件源，所以需要先将 ROS 软件源配置到软件列表仓库中，才能下载 ROS 。打开一个控制台终端(快捷键Ctrl+Alt+T),输入如下指令：  
+There is no ROS software source in Ubuntu's own software source list, so you need to configure the ROS software source to the software list repository before you can download ROS. Open a console terminal (Ctrl+Alt+T) and enter the following command:
 
-- 官方源：  
+- Official Source: 
 > sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
-- 若下载速度缓慢，推荐就近选择一个镜像源替换上面的命令。例如，Tsinghua University为：  
+- If the download speed is slow, you are advised to select a nearby mirror source to replace the preceding command. For example, Tsinghua University is:
 
 > sudo sh -c '. /etc/lsb-release && echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
 
-这里会要求输入用户密码，输入安装 Ubuntu 时设置的用户密码即可。
+You will be asked to enter the user password. Enter the user password you set when installing Ubuntu.
 
-### 2 设置秘钥
+### 2 Set the secret key
 
-配置公网秘钥,这一步是为了让系统确认我们的路径是安全的的，这样下载文件才没有问题，不然下载后会被立刻删掉：
+Configure the public network key, this step is to let the system confirm that our path is safe, so that there is no problem to download the file, otherwise it will be deleted immediately after downloading:
 
 > sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 
-执行结果显示如下：  
+The command output is as follows:  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/install-ros-2.png" alt="7.1.1-1" style="zoom:0%;" />  
 
 
-### 3 安装
+### 3 Install
 
-在加入了新的软件源后，需要**更新软件源列表**，打开一个控制台终端(快捷键Ctrl+Alt+T),输入如下指令：  
-> sudo apt-get update  
+After adding a new software source, you need to ** update the software source list **, open a console terminal (Ctrl+Alt+T), and enter the following command:
+> sudo apt-get update
 
-执行安装 ROS，打开一个控制台终端(快捷键Ctrl+Alt+T),请按照自己的Ubuntu版本选择输入以下指令：
+To install ROS, open a console terminal (Ctrl+Alt+T) and enter the following command according to your Ubuntu version:
 
 > \# Ubuntu 16.04  
 > sudo apt install ros-kinetic-desktop-full
@@ -145,21 +146,21 @@ Ubuntu 本身的软件源列表中没有 ROS 的软件源，所以需要先将 R
 > \# Ubuntu 20.04  
 > sudo apt install ros-noetic-desktop-full
 
-这里推荐安装完整的 ROS，防止库和依赖的缺失。
+A full ROS installation is recommended to prevent the loss of libraries and dependencies.
 
-安装过程耗时比较长，需要耐心等待
+The installation process takes a long time and requires patience
 
-- 若安装过程中，控制台终端出现如下错误信息，则需要更换/etc/apt/sources.list中的软件源列表。  
+- If the following error message is displayed on the console terminal during installation, change the software source list in /etc/apt/sources.list. 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/ros-1.png" alt="7.1.1-1" style="zoom:0%;" />  
 
 
-- 打开一个控制台终端(快捷键Ctrl+Alt+T)，输入如下指令：
+- Open a console terminal (Ctrl+Alt+T) and enter the following command:
 
 > sudo gedit /etc/apt/sources.list
 
-- 将sources.list中的官方软件源全部替换成下面的阿里云软件源：
+- Replace all official software sources in sources.list with the following Alibaba Cloud software sources:
 
-\# Ubuntu 16.04版本：
+\# Ubuntu 16.04 version:
 
 deb http://mirrors.aliyun.com/ubuntu/ xenial main  
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial main  
@@ -177,7 +178,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main
 deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe  
 deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security universe  
 
-\# Ubuntu 18.04版本：
+\# Ubuntu 18.04 version：
 
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse  
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse  
@@ -194,7 +195,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted univer
 deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse  
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse  
 
-\# Ubuntu 20.04版本：
+\# Ubuntu 20.04 version：
 
 deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse  
 deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse  
@@ -211,15 +212,15 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted univers
 deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse  
 deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse  
 
-- 配置完成后，sources.list文件内容如下所示，点击保存并退出。
+- After the configuration, the contents of the sources.list file are as follows. Click Save and exit.
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/ros-2.png" alt="7.1.1-1" style="zoom:0%;" />    
 
 
-- 更新软件源列表，在控制台终端输入:
+- To update the software source list, enter in the console terminal:
 
 > sudo apt-get update
 
-- 在控制台终端输入安装ROS的指令：
+- Enter the instructions to install ROS in the console terminal:
 
 > \# Ubuntu 16.04  
 sudo apt install ros-kinetic-desktop-full
@@ -230,45 +231,45 @@ sudo apt install ros-melodic-desktop-full
 > \# Ubuntu 20.04  
 sudo apt install ros-noetic-desktop-full
 
-**安装过程耗时比较长，需要耐心等待**
+** The installation process takes a long time and requires patience **
 
-### 4 配置 ROS 环境到系统
+### 4 Configure the ROS environment to the system
 
-rosdep 让你能够轻松地安装被想要编译的源代码，或被某些 ROS 核心组件需要的系统依赖，在终端依次执行以下命令，打开一个控制台终端(快捷键Ctrl+Alt+T)。  
+rosdep allows you to easily install the source code that you want to compile, or that is required by some of the ROS core components of the system, by executing the following commands from the terminal to open a console terminal (Ctrl+Alt+T).
 
-如果您的系统没有安装rosdep,请使用命令sudo apt install python-rosdep进行安装。  
+If rosdep is not installed on your system, use the command sudo apt install python-rosdep to install it.
 
-如果您的安装的Ubuntu系统是20.04版本，请使用命令sudo apt install python3-rosdep进行安装，完成后执行rosdep初始化命令。  
+If your Ubuntu system is version 20.04, run the sudo apt install python3-rosdep command to install it, and then execute the rosdep initialization command.
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/install-ros-4.png" alt="7.1.1-1" style="zoom:0%;" />    
 
-**初始化 rosdep：**
+** Initialize rosdep: **
 > sudo rosdep init
 
-若出现如下图所示的错误提示：  
+If an error message like the one below appears:  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/ros-3.png" alt="7.1.1-1" style="zoom:0%;" />    
 
-**解决方法：** 修改hosts文件，控制台终端输入下面的指令：
+** Workaround: ** Modify the hosts file and enter the following command in the console terminal:
 
 > sudo gedit /etc/hosts
 
-在文件内容末端，加入以下两个网址的IP地址实现访问：
+At the end of the file content, add the IP addresses of the following two urls to achieve access:
 
 > 199.232.28.133 raw.githubusercontent.com  
 > 151.101.228.133 raw.github.com  
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/ros-4.png" alt="7.1.1-1" style="zoom:0%;" />      
 
-修改完成后，在控制台终端执行：  
+After the modification is complete, execute in the console terminal:  
 > sudo rosdep init  
 > rosdep update
 
-初始化完成后，为了避免每次关掉终端窗口后都需要重新生效 ROS 功能路径，我们可以**把路径配置到环境变量中**，这样在每次打开新的终端时便可自动生效 ROS 功能路径 在终端依次执行以下命令，打开一个控制台终端(快捷键Ctrl+Alt+T)：  
-## 3.1.3 设置ros环境
+After the initialization, in order to avoid the need to reactivate the ROS function path every time the terminal window is closed, we can configure the path to the environment variable **, so that the ROS function path can automatically take effect every time a new terminal is opened. Open a console terminal (Ctrl+Alt+T) :
+## 3.1.3 Setting up the ros environment
 Bash
 
-执行以下命令：  
-> \# Ubuntu 16.04  
-> \# 将 ros 环境加入到当前控制台的环境变量  
+Run the following command:
+> # Ubuntu 16.04
+> \# Adds the ros environment to the environment variable of the current console
 > echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 
 > \# Ubuntu 18.04  
@@ -279,12 +280,12 @@ Bash
 
 > source ~/.bashrc
 
-安装 ROS 额外依赖项
+Install ROS extra dependencies
 
-在终端输入以下命令**安装ROS额外依赖项**，打开一个控制台终端(快捷键Ctrl+Alt+T)：  
-> sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential  
+Enter the following command **Install ROS Extra dependencies** in the terminal to open a console terminal (Ctrl+Alt+T) :
+> sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
 
-如果你的Unbutu系统是20.04版本，请执行以下命令安装：
+If your Unbutu system is version 20.04, run the following command to install it:
 
 > sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 
@@ -297,182 +298,204 @@ Bash
 > \# Ubuntu 20.04   
 > sudo apt install ros-noetic-joint-state-publisher-gui  
 
-## 3.1.4 验证安装
+## 3.1.4 Verifying installation
 
-ROS 系统的启动需要一个 ROS Master，即节点管理器，我们可以在终端输入 roscore 指令来启动 ROS Master。
+The startup of ROS system requires a ROS Master, that is, a node manager, and we can start ROS Master by entering the roscore command in the terminal.
 
-为了验证 ROS 是否安装成功，打开一个控制台终端(快捷键Ctrl+Alt+T)，在终端执行以下命令：
+To verify that ROS is installed successfully, open a console terminal (Ctrl+Alt+T) and execute the following command on the terminal:
 
 > roscore
 
-当显示如下界面，则表示 ROS 安装成功  
+If the following information is displayed, the ROS installation is successful  
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/install-ros-3.png" alt="7.1.1-1" style="zoom:0%;" />      
-roscore命令启动了一个节点管理器，其作用就是用于节点管理，在一个ros系统中，有且只有一个，它是ros节点运行的前提，所以在执行启动ros节点前，第一步都需要执行roscore。
+The roscore command starts a node manager, which is used for node management. In a ros system, there is and only one, which is the prerequisite for ros nodes to run. Therefore, before starting ros nodes, the first step needs to execute roscore.
 
-更多更详细的安装指导，可以参考官方的安装指导，网址: http://wiki.ros.org/ROS/Installation
+More detailed installation instructions, you can refer to the official installation guide, website: http://wiki.ros.org/ROS/Installation
 
 
 
-# 二、MoveIt安装
-MoveIt 是 ros 中一系列移动操作的功能包的组成，主要包含运动规划，碰撞检测，运动学，3D 感知，操作控制等功能。
+# 2. MoveIt installation
+MoveIt is the component of a series of mobile operation function packages in ros, mainly including motion planning, collision detection, kinematics, 3D perception, operation control and other functions.
 
-## 2.1 更新软件源列表
+## 2.1 Update the software source list
 
-打开一个控制台终端(快捷键Ctrl+Alt+T)，在终端窗口输入以下命令，以更新软件源列表：
+Open a console terminal (Ctrl+Alt+T) and enter the following command in the terminal window to update the software source list:
 > sudo apt-get update
 
-## 2.2 安装 MoveIt
+## 2.2 Install MoveIt
 
-打开一个控制台终端(快捷键Ctrl+Alt+T)，在终端窗口输入以下命令，执行 MoveIt 的安装：
+Open a console terminal (Ctrl+Alt+T) and execute the MoveIt installation by entering the following command in the terminal window:
 > sudo apt-get install ros-noetic-moveit
 
-# 三、 git 安装
-## 3.1 添加软件源
-将 git 安装的软件源添加到 ubuntu 的软件源列表中，打开一个控制台终端(快捷键Ctrl+Alt+T)，在终端窗口输入以下命令：
->sudo add-apt-repository ppa:git-core/ppa
+# 3. Git Installation
 
-## 3.2 更新软件源列表
-打开一个控制台终端(快捷键Ctrl+Alt+T)，在终端窗口输入以下命令，以更新软件源列表：
+## 3.1 Add Software Source
+
+To install Git, add the software source for Git to Ubuntu’s software repository. Open a terminal (shortcut Ctrl+Alt+T) and enter the following command in the terminal window:
+
+> sudo add-apt-repository ppa:git-core/ppa
+
+## 3.2 Update Software Source List
+
+Open a terminal (shortcut Ctrl+Alt+T), and enter the following command to update the software source list:
+
 > sudo apt-get update
 
-## 3.3 安装 git
-打开一个控制台终端(快捷键Ctrl+Alt+T)，在终端窗口输入以下命令，执行 git 的安装：
+## 3.3 Install Git
+
+Open a terminal (shortcut Ctrl+Alt+T), and enter the following command to install Git:
+
 > sudo apt-get install git
 
-## 3.4 验证安装
-读取 git 版本，打开一个控制台终端(快捷键Ctrl+Alt+T)，在终端窗口输入以下命令：
+## 3.4 Verify Installation
+
+Check the Git version. Open a terminal (shortcut Ctrl+Alt+T) and enter the following command:
+
 > git --version
 
-在终端中可以显示 git 版本号，如下，即为安装成功
-><img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/git.jpg" alt="7.1.1-1" style="zoom:100%;" />
+If the terminal shows the Git version number as below, the installation is successful:
 
-## 3.5 使用
+![7.1.1-1](../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/git.jpg)
 
-在后续下载 ros 包需要用到git，git 的使用可以参考下面链接：  
-https://git-scm.com/book/zh/v2    
-https://www.runoob.com/git/git-tutorial.html
+## 3.5 Usage
 
+Git will be required for downloading ROS packages later. You can refer to the following links for Git usage:
 
-# mycobot_ros 安装
+- [Git Documentation](https://git-scm.com/book/zh/v2)  
+- [Git Tutorial](https://www.runoob.com/git/git-tutorial.html)
 
-mycobot_ros 是 ElephantRobotics 推出的，适配旗下桌面型六轴机械臂系列 的ROS 包。
+---
 
-项目地址：[https://github.com/elephantrobotics/mycobot_ros](https://github.com/elephantrobotics/mycobot_ros)
+# mycobot_ros Installation
 
-##  前提
+`mycobot_ros` is a ROS package developed by ElephantRobotics, designed for their desktop six-axis robotic arm series.
 
-在安装包之前，请保证拥有 ros 工作空间。  
-这里我们给出**创建工作空间**的样例命令，默认为catkin_ws, 打开一个控制台终端(快捷键Ctrl+Alt+T)，在命令行输入以下命令：
+Project repository: [https://github.com/elephantrobotics/mycobot_ros](https://github.com/elephantrobotics/mycobot_ros)
 
->mkdir -p ~/catkin_ws/src  # 创建文件夹  
->cd ~/catkin_ws/src        # 进入文件夹  
->catkin_init_workspace     # 把当前目录初始化为一个ROS工作空间  
->cd ..                     # 返回上级目录  
->catkin_make               # 构建工作区中的代码
+## Prerequisites
 
-**创建好之后会生成一个文件夹**    
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/catkin.jpg" alt="7.1.1-1" style="zoom:0%;" /> 
+Before installing the package, make sure you have a ROS workspace. Here is an example command to **create a workspace**. The default workspace is named `catkin_ws`. Open a terminal (shortcut Ctrl+Alt+T) and enter the following commands:
 
-**添加工作空间的环境**  
+> mkdir -p ~/catkin_ws/src  # Create the folder  
+> cd ~/catkin_ws/src        # Enter the folder  
+> catkin_init_workspace     # Initialize the current directory as a ROS workspace  
+> cd ..                     # Go back to the parent directory  
+> catkin_make               # Build the workspace code
+
+**After creation, a folder will be generated:**  
+![7.1.1-1](../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/catkin.jpg)
+
+**Add the workspace environment**  
 Bash  
-官方默认的 ROS1 工作区是 catkin_ws。  
+The default ROS1 workspace is `catkin_ws`.  
 ###### Ubuntu 16.04  
-echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc  
+> echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc  
 
 ###### Ubuntu 18.04  
-echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+> echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 
 ###### Ubuntu 20.04  
-echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+> echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 
-source ~/.bashrc  
+Then run:  
+> source ~/.bashrc  
 
-## 2 安装
+## 2. Installation
 
-**NOTE：**
+**NOTE:**
 
-本包依赖于ROS和MoveIT，使用前确保以成功安装ROS和MoveIT。  
-本包与真实机械臂的交互依赖于PythonApi - pymycobot  
-Api项目地为：[https://github.com/elephantrobotics/pymycobot](https://github.com/elephantrobotics/pymycobot)  
+This package depends on ROS and MoveIt. Make sure that ROS and MoveIt are installed successfully before proceeding.  
+This package interacts with the actual robotic arm through the Python API - `pymycobot`.  
+API project repository: [https://github.com/elephantrobotics/pymycobot](https://github.com/elephantrobotics/pymycobot)
 
-快速安装：pip install pymycobot --upgrade
+Quick installation:  
+> pip install pymycobot --upgrade
 
-执行pip install pymycobot --upgrade命令时，若出现如下图错误提示：  
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/ros-5.jpg" alt="7.1.1-1" style="zoom:0%;" />   
+If you encounter the following error when running the command `pip install pymycobot --upgrade`:  
+![7.1.1-1](../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/ros-5.jpg)
 
-根据提示输入以下命令安装pip
+Follow the instructions to install `pip`:
 
 > sudo apt install python-pip
->
->> 如果你的Ubuntu系统是20.04版本，请执行命令sudo apt install python3-pip安装pip pip安装完成后，终端再次执行  
->>
->> pip install pymycobot --upgrade
->
->> 安装方式依赖于Git，请确保电脑中已安装Git。
 
-官方默认的 ROS1 工作区是 catkin_ws。  
+> If you are using Ubuntu 20.04, run:  
+  > sudo apt install python3-pip to install pip. Once pip is installed, run:  
+  > pip install pymycobot --upgrade  
 
-**打开终端：**
-> cd ~/catkin_ws/src  # 进入工作区的src文件夹中  
-> git clone https://github.com/elephantrobotics/mycobot_ros.git     # 克隆github上的代码  
-> cd ..       # 返回工作区  
-> catkin_make # 构建工作区中的代码  
+Note: The installation relies on Git, so make sure Git is installed on your computer.
+
+The default ROS1 workspace is `catkin_ws`.
+
+**Open the terminal:**  
+> cd ~/catkin_ws/src  # Enter the src folder in the workspace  
+> git clone https://github.com/elephantrobotics/mycobot_ros.git     # Clone the repository from GitHub  
+> cd ..       # Go back to the workspace  
+> catkin_make # Build the workspace code  
 > cd ..  
-> source devel/setup.bash # 添加环境变量  
+> source devel/setup.bash # Add environment variables  
 
-## **至此，环境搭建部分完成**
+## **At this point, the environment setup is complete.**
 
-### 为了后续的编程，我们还需要下载一个 VS code
-#### 这里我们就选择最方便的一种方法： **在Ubuntu Software中安装【简单、方便】**  
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vs1.jpg" alt="7.1.1-1" style="zoom:0%;" />   
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vs2.png" alt="7.1.1-1" style="zoom:0%;" />   
+### For future programming, we also need to download Visual Studio Code (VS Code).
 
-**安装好之后，我们还需要安装一下python环境**  
-要想运行python文件很简单，点击左边扩展(ctrl+shift+X)--搜索python，下载安装即可      
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/python2.jpg" alt="7.1.1-1" style="zoom:0%;" />     
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/python.jpg" alt="7.1.1-1" style="zoom:0%;" />      
+#### Here is the simplest method: **Install it from the Ubuntu Software Center [Simple and Convenient]**  
+![7.1.1-1](../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vs1.jpg)   
+![7.1.1-1](../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/vs2.png)
 
-安装好后就可以点击左上文件，选择新建文件，选择文件类型为python，编写自己的python代码，然后点击上方菜单栏的运行就可以  
+**After installation, we also need to set up the Python environment.**
 
-# rviz的简单介绍及使用
+To run Python files is very simple, click on the left extension panel (Ctrl+Shift+X), search for "Python", and install the extension.  
+![7.1.1-1](../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/python2.jpg)  
+![7.1.1-1](../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/python.jpg)
 
-rviz是ROS中一款三维可视化平台，一方面能够实现对外部信息的图形化显示，另外还可以通过 rviz 给对象发布控制信息，从而实现对机器人的监测与控制。  
-1 rviz的安装及界面简介  
-在安装ros时，如果执行的完全安装，rviz已经安装好了,您可以直接尝试运行；如果没有完全安装，可单独安装rviz:  
-> - **Ubuntu16.04**
-> - sudo apt-get install ros-kinetic-rviz
+Once installed, you can create a new Python file by clicking "File" on the top left, selecting the file type as Python, write your Python code, and then run it from the menu bar.
 
-> - **Ubuntu18.04**  
-> - sudo apt-get install ros-melodic-rviz
+---
 
-> - **Ubuntu20.04**  
-> - sudo apt-get install ros-noetic-rviz  
+# Introduction and Usage of RViz
 
-安装完成后，请先打开一个新的终端(快捷键Ctrl+Alt+T),输入如下指令：  
+RViz is a 3D visualization platform in ROS that allows for graphical display of external information and also enables sending control information to objects, thereby facilitating robot monitoring and control.  
+
+## 1. RViz Installation and Interface Overview
+
+If you installed ROS with the full installation option, RViz has already been installed, and you can try running it directly. If not, you can install RViz separately:
+
+- **Ubuntu 16.04**  
+  > sudo apt-get install ros-kinetic-rviz
+
+- **Ubuntu 18.04**  
+  > sudo apt-get install ros-melodic-rviz
+
+- **Ubuntu 20.04**  
+  > sudo apt-get install ros-noetic-rviz
+
+After installation, open a new terminal (shortcut Ctrl+Alt+T) and enter the following command:
+
 > roscore
 
-然后再打开一个一个新的终端(快捷键Ctrl+Alt+T)输入命令打开rviz  
+Then, open another new terminal (Ctrl+Alt+T) and enter the command to open RViz:
 
-> rosrun rviz rviz 或 rviz
+> rosrun rviz rviz or rviz
 
-打开rviz,显示如下界面：  
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/rviz1.jpg" alt="7.1.1-1" style="zoom:0%;" />   
+After opening RViz, the following interface will be displayed:  
+![7.1.1-1](../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/1_download/rviz1.jpg)
 
-## 1 各个区域介绍
+## 2. Description of Each Area
 
-- 左侧为显示器列表，显示器是在3D世界中绘制某些内容的东西，并且可能在显示列表中具有一些可用的选项。
-- 上方是工具栏，允许用户用各种功能按键选择多种功能的工具
-- 中间部分为3D视图: 它是可以用三维方式查看各种数据的主屏幕。3D视图的背景颜色、固定框架、网格等可以在左侧显示的全局选项（Global Options）和网格（Grid）项目中进行详细设置。
-- 下方为时间显示区域，包括系统时间和ROS时间等。
-- 右侧为观测视角设置区域，可以设置不同的观测视角。
+- The left panel displays the list of displays, which are used to render certain content in the 3D world, and may have some available options in the display list.
+- The top part is the toolbar, which allows users to select various functional tools.
+- The central area is the 3D view: it is the main screen where various data can be viewed in 3D. The background color, fixed frame, and grid can be set in the Global Options and Grid sections in the left panel.
+- The bottom area shows the time, including system time and ROS time.
+- The right area is for setting the viewpoint, allowing different observation angles.
 
-本部分我们只进行粗略的介绍，如果您想了解更多详细的内容，可以前往[用户指南](http://wiki.ros.org/rviz/UserGuide)进行查看。
+This section is a brief overview. For more detailed information, you can refer to the [User Guide](http://wiki.ros.org/rviz/UserGuide).
+
 
 
 
 ---
 
-[← 上一节](../5.1-BasedOnPythonDevelopmentAndUse/5_tracer_example.md) | [下一页 →](2_workcode.md)
+[← Previous](../5.1-BasedOnPythonDevelopmentAndUse/5_tracer_example.md) | [Next page →](2_workcode.md)
 
 
 

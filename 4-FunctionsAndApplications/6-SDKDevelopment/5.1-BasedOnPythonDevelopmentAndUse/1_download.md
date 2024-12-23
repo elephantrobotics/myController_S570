@@ -1,23 +1,23 @@
-# 环境配置
+# Environment Setup
 
-pymycobot 是一个和 myArm 进行串口通讯的 Python 包，支持 Python2、Python3.5 及之后版本。
+pymycobot is a Python package for serial communication with myArm, supporting Python2, Python3.5, and later versions.
 
-在使用 pymycobot 控制机械臂之前需要搭建 Python 环境，下面就对 Python 的下载安装做出详细说明。
+Before using pymycobot to control the robotic arm, you need to set up the Python environment. The following section provides detailed instructions on how to download and install Python.
 
-## 1 Python 下载和安装
+## 1. Python Download and Installation
 
-目前，Python 有两个版本：2.x "和 "3.x"。这两个版本互不兼容。本节以版本 `3.x` 为例，因为它越来越受欢迎。
+Currently, Python has two versions: 2.x and 3.x. These two versions are incompatible with each other. This section uses version `3.x` as an example, as it is becoming increasingly popular.
 
-### 1.1 安装 Python
+### 1.1 Install Python
 
-> **注意：** 安装之前，请先确认您的电脑是 64 位还是 32 位。右键点击`我的电脑`，选择`属性`。如下图显示是 64 位的操作系统，所以选择 64 位的 Python 安装包。
+> **Note:** Before installation, please confirm whether your computer is 64-bit or 32-bit. Right-click `My Computer`, select `Properties`. As shown in the image below, it is a 64-bit operating system, so choose the 64-bit Python installation package.
 >
 > <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/operatingsystemchecking1.jpg" alt="7.1.1-1" style="zoom:50%;" />
 >
 > <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/operatingsystemchecking2.jpg" alt="7.1.1-1" style="zoom:50%;" />
 
-- **Python 官方下载地址： http://www.python.org/download/**
-- **点击`Downloads`选项，开始下载 Python，点击 `Add Python 3.10 to PATH`,点击 `Install Now`，开始安装 Python**
+- **Official Python download site: [http://www.python.org/download/](http://www.python.org/download/)**
+- **Click the `Downloads` option to start downloading Python, then click `Add Python 3.10 to PATH`, and click `Install Now` to begin the installation of Python.**
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pythoninstall1.jpg" alt="7.1.1-1" style="zoom:50%;" />
 
@@ -25,126 +25,95 @@ pymycobot 是一个和 myArm 进行串口通讯的 Python 包，支持 Python2�
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pythoninstall3.jpg" alt="7.1.1-1" style="zoom:50%;" />
 
-- **出现“Setup was successful”提示，说明安装完成**
+- **Once the “Setup was successful” message appears, the installation is complete.**
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pythoninstall4.jpg" alt="7.1.1-1" style="zoom:50%;" />
 
-### 1.2 运行 Python
+### 1.2 Run Python
 
-安装成功后，打开命令提示符窗口（`Win+R`，输入`cmd`回车），敲入`python`后，会出现两种情况。
+After installation is successful, open the Command Prompt window (`Win+R`, type `cmd` and press Enter), then type `python`. Two scenarios may occur.
 
-**情况一：**
+**Scenario 1:**
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/successfulinstallation.jpg" alt="7.1.1-1" style="zoom:50%;" />
 
-屏幕上的这一提示表示 Python 已成功安装。提示符 `>>>` 表示 Python 交互环境。如果输入 Python 代码，可以立即得到执行结果。
+The message displayed on the screen indicates that Python has been successfully installed. The prompt `>>>` indicates the Python interactive environment. You can input Python code, and the execution result will appear immediately.
 
-**情况二：**
+**Scenario 2:**
 
-假如输入错误（比如输入 pythonn），则会出现错误提示：
+If you input an incorrect command (e.g., `pythonn`), you will see an error message:
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/installerror.jpg" alt="7.1.1-1" style="zoom: 67%;" />
 
-> **注意：** 出现错误的信息一般都是没有配置环境变量导致的，可以参考 1.3 配置环境变量修改环境变量。
+> **Note:** The error message generally means that the environment variable is not configured properly. You can refer to section 1.3 to configure the environment variable.
 
-### 1.3 配置环境变量
+### 1.3 Configure Environment Variables
 
-由于 Windows 会根据一个 Path 的环境变量设定的路径去查找 python.exe，如果没找到，就会报错。因此，如果安装时漏掉了勾选`Add Python 3.10 to PATH`，则需要手动把 python.exe 所在的路径添加到 Path 中，或者重新安装一遍 Python，记得勾选上 `Add Python 3.10 to PATH` 选项即可。
+Since Windows uses the `Path` environment variable to locate `python.exe`, if it is not found, an error will occur. If you missed selecting `Add Python 3.10 to PATH` during installation, you need to manually add the path of `python.exe` to the `Path` variable, or reinstall Python and make sure to select `Add Python 3.10 to PATH`.
 
-以下是手动添加 python.exe 所在的路径步骤。
+Here are the steps to manually add the path of `python.exe`:
 
-- 右键`我的电脑` –> 选择属性 –> 选择高级系统设置 –> 选择右下角的环境变量：
+- Right-click `My Computer` → select `Properties` → select `Advanced System Settings` → click the `Environment Variables` button at the bottom right:
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/environment configuration.jpg" alt="7.1.1-1" style="zoom: 50%;" />
 
-- 环境变量包括用户变量和系统变量。对于用户变量，用户可以通过 `cmd` 命令使用自己下载的程序。将目标程序的绝对路径写入用户变量。
+- Environment variables include user variables and system variables. For user variables, you can use the downloaded program via the `cmd` command. Write the absolute path of the target program into the user variables.
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/user variable1.jpg" alt="7.1.1-10" style="zoom:50%;" />
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/user variable2.jpg" alt="7.1.1-11" style="zoom:50%;" />
 
-- 以上步骤完成后，打开命令提示符窗口（`Win+R`，再输入 `cmd`，回车），敲入 `python`，出现下图中的提示表示成功：
+- After completing the above steps, open the Command Prompt window (`Win+R`, type `cmd`, press Enter), type `python`, and if the following message appears, it means the setup was successful:
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/user variable3.jpg" alt="7.1.1-7" style="zoom: 67%;" />
 
-## 2 PyCharm 安装和使用
 
-PyCharm 是一款功能强大的 Python 编辑器，具有跨平台性。首先介绍 PyCharm 在 Windows 系统中的安装步骤。
+## 2 PyCharm Installation and Usage
 
-**下载地址** **[PyCharm](http://www.jetbrains.com/pycharm/download/#section=windows)**
+PyCharm is a powerful Python editor with cross-platform support. This section introduces the installation steps of PyCharm on Windows.
 
-### 2.1 下载安装
+**Download Link**: **[PyCharm](http://www.jetbrains.com/pycharm/download/#section=windows)**
 
-进入该网站后，我们会看到如下界面：
+### 2.1 Download and Installation
 
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pycharmdownload1.jpg" alt="7.1.1-7" style="zoom: 67%;" />
+1. **Download Link**: [PyCharm Download Page](http://www.jetbrains.com/pycharm/download/#section=windows)
+   - PyCharm offers two versions: Professional and Community. It is recommended to install the free Community version.
 
-根据界面介绍下载文件，Professional 表示专业版，Community 是社区版，推荐安装社区版，因为是免费使用的。
+2. **Installation Process**:
+   - After downloading, run the installer.
+   - Click `Next` to continue.
+   - Select the options according to your preferences, then click `Next`.
+   - Click `Install` to begin the installation.
+   - After the installation is complete, click `Finish` to end the process.
 
-- 下载好之后开始安装，点击 `Next`:
+### 2.2 Create a Project
 
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pycharmdownload2.jpg" alt="7.1.1-7" style="zoom: 67%;" />
+1. **Launching PyCharm**:
+   - Double-click the PyCharm icon on the desktop to open PyCharm.
+   - Click `New Project` to create a new project.
 
-- 按照个人喜好选择相应选项，然后点击 `Next`:
+2. **Setting up Python Interpreter**:
+   - When creating the project, you need to configure the Python interpreter.
+   - Click `Add Interpreter`, select `New`, locate the `python.exe` in the Python installation directory, and check the `Inherit global site-package` option.
 
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pycharmdownload3.jpg" alt="7.1.1-7" style="zoom: 67%;" />
+3. **Setting the Project Location**:
+   - Choose a location to store the PyCharm project in the `Location` field.
 
-- 点击 `Install`:
+4. **Create a Python File**:
+   - In PyCharm, right-click the document icon in the project, select `New`, and then choose `Python File`. Enter the file name and create it.
 
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pycharmdownload4.jpg" alt="7.1.1-7" style="zoom: 67%;" />
+5. **Write Code**:
+   - After creating the file, the code editor will open, and you can start writing your Python code.
 
-- 下载中:
 
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pycharmdownload5.jpg" alt="7.1.1-7" style="zoom: 67%;" />
+## **3 Preparation Work**
 
-- 点击 `Finish` 结束安装：
+- **Firmware Programming**: The firmware is the system's control program for driving the robot. [**MyStudio**](https://docs.elephantrobotics.com/docs/gitbook-en/4-BasicApplication/4.1-myStudio/).
 
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pycharmdownload6.jpg" alt="7.1.1-7" style="zoom: 67%;" />
+  - **M5Stack Version**: The `Basic` at the bottom needs to be programmed with `minirobot`. After the programming is complete, select the `Transponder` function (this function is used to receive and forward the commands sent by the bottom Basic, thus executing the target action). Click `Press A`, and if the prompt `Atom: OK` appears, the programming is successful. Additionally, the Atom at the end of the M5 version is programmed with the latest version of atomMain, which is pre-programmed from the factory and does not require programming.
+  - **Pi \ JetsonNano Version**: The Atom at the end of the Pi and JetsonNano versions is programmed with the latest version of atomMain, which is pre-programmed from the factory and does not require programming.
 
-### 2.2 创建项目
-
-PyCharm 安装完成之后进入该软件，创建第一个程序。
-
-- 单击桌面上的 PyCharm 图标，进入到 PyCharm 中，如下图所示，点击 `New Project` :
-
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/createproject1.jpg" alt="7.1.1-7" style="zoom: 50%;" />
-
-- `Interpreter` 用于解释 python 程序。找到 `Interpreter`，开始对解释器进行设置，点击 `Add Interpreter`
-
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/interpreter1.jpg" alt="7.1.1-7" style="zoom: 50%;" />
-
-- 点击 `New`，找到 python.exe 存储位置，勾选 `Inherit global site-package` 选项：
-
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/interpreter3.jpg" alt="7.1.1-7" style="zoom: 40%;" />
-
-- 设置 `Location`。Location 是存储 PyCharm 项目的地方，可根据需要自行选择。
-
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/location1.jpg" alt="7.1.1-7" style="zoom: 40%;" />
-
-- 点击 `Create`，会出现一个样本:
-
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/createproject2.jpg" alt="7.1.1-7" style="zoom: 40%;" />
-
-- 新建 PyCharm 文件。右击箭头指向的文档图标，点击 New，点击 Python File，新建成功:
-
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/createproject3.jpg" alt="7.1.1-7" style="zoom: 40%;" />
-
-- 命名 Python File.
-
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/createproject4.jpg" alt="7.1.1-7" style="zoom: 67%;" />
-
-- 文件创建成功后便进入如下的界面，便可以编写自己的程序了:
-
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pycharm界面展示.jpg" alt="7.1.1-7" style="zoom: 67%;" />
-
-## **3 准备工作**
-
-- 固件烧录。固件是系统控制机器人的驱动程序。 [**MyStudio**](<(https://docs.elephantrobotics.com/docs/gitbook-en/4-BasicApplication/4.1-myStudio/)>)。
-
-  - **M5Stack 版本** 底部的 `Basic` 需要烧录 `minirobot`。烧录完成后选择 `Transponder` 功能（该功能用于接收转发底部 Basic 发送的指令，从而执行目标动作），点击 `Press A`，出现 `Atom：OK` 提示信息即为成功。此外，M5 版本末端 Atom 烧录最新版的 atomMain，出厂默认已烧录，无需自行烧录。
-  - **Pi \ jetsonnano** 版本末端 Atom 烧录最新版的 atomMain，出厂默认已烧录，无需自行烧录。
-
-- pymycobot 安装。打开一个控制台终端(快捷键 `Win+R`,输入 `cmd` 进入终端)，输入以下命令：
+- **Installing pymycobot**: Open a console terminal (shortcut `Win+R`, type `cmd` to open the terminal), and enter the following command:
 
   ```python
   pip install pymycobot --upgrade --user
@@ -152,46 +121,46 @@ PyCharm 安装完成之后进入该软件，创建第一个程序。
 
   <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pymycobotinstall.jpg" alt="7.1.1-7" style="zoom: 80%;" />
 
-- 源码安装。打开一个控制台终端(快捷键 `Win+R`,输入 `cmd` 进入终端)，输入以下命令即可安装：
+- Source code installation. Open a console terminal (shortcut key 'Win+R', enter 'cmd' to enter the terminal) and enter the following command to install:
 
   ```python
   git clone https://github.com/elephantrobotics/pymycobot.git <your-path>
-  # 其中<your-path>填写你的安装地址，不填默认在当前路径
+  # Where <your-path> fill in your installation address, do not fill in the default in the current path
   
   cd <your-path>/pymycobot
-  # 进入到下载包的pymycobot文件夹
+  # Go to the pymycobot folder in the download package
   
-  # 根据你的python版本运行下面其一命令
+  # Run one of the following commands based on your version of python
   # Install
    python2 setup.py install
   # or
    python3 setup.py install
   ```
 
-- 更新 pymycobot
+- Update pymycobot
 
 ```bash
 pip install pymycobot --upgrade
 ```
 
-## 4 导入 pymycobot
+## 4 Import pymycobot
 
-上述准备工作完成之后，开始通过 Python 代码实现对机械臂的操控。这里以 myArm Master 750 版本为例进行演示。
+After the above preparatory work is completed, the robot arm is controlled through Python code. The myArm Master 750 version is used as an example.
 
-- 输入以下代码，导入我们的库：
+- Enter the following code to import our library:
 
 ```python
 from pymycobot import MyArmM
 ```
 
-> **注意：**
+> ** Note: **
 >
-> 1. 如果代码下方没有出现红色波浪线，则说明 pymycobot 安装成功。
-> 2. 如果出现红色波浪线，请访问 **https://github.com/elephantrobotics/pymycobot** 手动下载 pymycobot 并将其放入 python 库。
+> 1. If the red wavy line does not appear at the bottom of the code, the pymycobot installation was successful.
+> 2. If there is a red wavy lines, please visit https://github.com/elephantrobotics/pymycobot * * * * manually download pymycobot and put it in python library.
 >
 > <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/5.1-BasedOnPythonDevelopmentAndUse/1_download/pymycobotdownload.jpg" alt="7.1.1-7" style="zoom: 33%;" />
 
 
 ---
 
-[← 上一页](../README.md) | [下一页 →](2_API.md)
+[← Previous](../README.md) | [Next page →](2_API.md)

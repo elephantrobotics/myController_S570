@@ -1,143 +1,132 @@
-## 1. 产品概述
+## 1. Product Overview
 
-##### myArm M&C 具身人型复合套件 
+##### MyController S570
 
-<img src="..\..\resources\2-ProductInformation\1-ProductIntroduction\M&C.jpg" alt="img-1" width="900" height=“auto” /><br>
+<img src="../../resources/4-FunctionsAndApplications/6-SDKDevelopment/6.1-Wayofwearing/1_download/product.jpg" alt="img-1" width="900" height="auto" /><br>
 
-##### 装配四个通用型智能六自由度机械臂的人型复合套件
+##### Portable wear, precise motion capture.
 
-### 产品简介
+### Product Introduction
 
-myArm M&C 具身人型复合套件 具身人型复合套件是深圳市大象机器人科技有限公司推出的一款创新性人型机器人平台，专为教育、科研和工业应用设计。该套件采用高度集成的复合型设计，结合人型结构与可调关节，提供了灵活的运动控制和精准的任务执行能力。通过具身智能技术，myArm M&C 具身人型复合套件 不仅能够自主执行任务，还能进行智能交互，实时感知和响应外部环境。其模块化设计使得用户可以根据需求定制硬件和软件，极大地提高了应用的扩展性和灵活性。
+The myController S570 is the first portable exoskeleton data acquisition device developed by Elephant Robotics, compatible with various types of robots. It covers scenarios such as data acquisition, remote operation, and end-to-end application development, helping researchers and developers combine humanoid, wheeled, and other types of robots in educational and training contexts, broadening the scope of teaching and research practices, and promoting the dissemination and mastery of knowledge and skills.
 
-myArm M&C 具身人型复合套件 具身人型复合套件的精密控制系统确保机器人在执行任务时的高精度与稳定性，广泛适用于工业自动化、机器人教育和研发等多个领域。支持ROS、Python等开发平台，开发人员可以轻松进行二次开发与应用定制。myArm M&C 具身人型复合套件 具身人型复合套件不仅为机器人技术的研究和开发提供了强大的硬件平台，也为智能交互和服务机器人提供了极具潜力的解决方案，是探索未来机器人应用的理想工具。
+### Applicable Fields
 
-### 设计理念
+**Research and Development**: In the field of research and development, it boasts a data acquisition speed of up to 100Hz, ensuring efficient collection of robot end-to-end AI data and motion capture tasks. With data reproduction and deep processing technologies, it can fully meet the needs of robot algorithm research and development in complex scenarios, providing a solid data foundation for scientific innovation.
 
-myArm M&C 具身人型复合套件 具身人型复合套件的设计理念源自对人类智慧与机器智能的深度融合，致力于打造一个具备高灵活性、高精度和高度可扩展性的机器人平台。通过结合人型结构和先进的具身智能技术，该产品不仅注重机械结构的精密与稳定，更关注机器人的感知与交互能力，力求为用户提供一个智能、易用且功能强大的工具，推动机器人技术的普及与应用。
+**Education and Training**: In the education and training field, its unique advantage of variable configurations allows it to be flexibly combined with robots of various structural forms such as 5-degree-of-freedom, 6-degree-of-freedom, and 7-degree-of-freedom. This enables the creation of highly intuitive robot control experiences for students and researchers, greatly helping students improve their understanding of robots and advancing the popularization and deepening of robotics knowledge.
 
-在设计过程中，myArm M&C 具身人型复合套件 秉承模块化与开放性的原则，使得用户能够根据自身需求自由定制硬件和软件配置。通过高精度的运动控制和灵活的操作方式，产品能够适应多种复杂的应用场景，从教育科研到工业自动化，从单一任务执行到智能交互体验，myArm M&C 具身人型复合套件 都能为用户提供高效、精准和个性化的解决方案。其兼容性强、开发平台支持广泛，赋予了开发者无限的创意空间，推动机器人技术朝着更加智能、开放、实用的方向发展。
+**Robot Remote Operation**: For robot remote operation, it achieves seamless collaboration with various robots by providing a standard Python driver library and ROS development support, successfully enabling robot motion data collection and remote control functions. The standard data format and abundant open-source examples significantly lower the barrier for remote robot operation, allowing even entry-level developers to easily get started and enjoy the convenience and fun of remote robot control.
 
-### 设计目标
+### Product Advantages
 
-<img src="..\..\resources\2-ProductInformation\1-ProductIntroduction\M750application2.jpg" alt="img-1" width="900" height=“auto” /><br>
+#### Ultra-light, Enjoy Long-lasting Experience
+With a lightweight design, the weight of a single arm is less than 800g, approximately the weight of three smartphones, greatly reducing the burden of long-term wear and ensuring that users can easily handle the device with no significant fatigue after prolonged use.
 
-| **设计目标**           | **功能实现**                                                                                                                                |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **通用多功能平台**     | myArm M&C 具身人型复合套件  适用于教育、研究和商业展示等多种应用场景。其六自由度与两组 750mm 和 650mm 的臂展支持在各种工作环境中执行复杂的运动控制，如精准定位和路径规划。  |
-| **科研和教育支持**     | myArm M&C 具身人型复合套件  适合机器学习和人工智能研究，能执行高精度的实验和技术演示。它支持端到端数据训练与复现，以及基础的视觉任务，是实验室中的理想设备。 |
-| **可编程性与扩展性**   | myArm M&C 具身人型复合套件  的高度可编程性允许用户根据新兴技术自定义和编程，满足未来的技术需求，实现优化操作和实验结果。                                     |
-| **技术创新与知识传播** | 在商业展示中，myArm M&C 具身人型复合套件  可作为展示最新科技成果的平台载体，旨在提高公众对科技的理解和兴趣，推动科技创新向商业化转化。                       |
+#### Flexible and Precise Human Arm Simulation
+With 12 degrees of freedom, it can precisely simulate human arm movements. Whether it’s complex multi-angle movements or all-around posture changes, it can accurately capture and control, providing powerful support for motion data collection and analysis.
 
-### 产品特点
+#### Convenient Interaction, Control at Your Fingertips
+The end-control device is uniquely designed with grips on both arms, integrating two buttons and a joystick. This design makes control and interaction highly intuitive, allowing users to easily issue various commands and conveniently adjust the device status.
 
-<img src="../../resources/2-ProductInformation/1-ProductIntroduction/MC_product.png" alt="img-1" width="900" height=“auto” /><br>
+#### Versatile Data Collection to Satisfy Data Needs
+With diverse data collection capabilities, its universal design excels in data acquisition. It can not only accurately record motion information but also effectively capture environmental parameters, fully meeting the diverse data needs in research and development.
 
-| **特征描述** | **内容** |
-|--------------------------|-------------------------------------------------------------------------------|
-| **4台6 自由度模块化设计** | 灵活性与可扩展性的完美结合，适合复杂操作。 |
-| **工业级数字伺服电机** | 保证机械臂的精准控制和长期稳定运行。 |
-| **高精度编码器** | 提供精确的位置、速度和加速度信息，优化性能。 |
-| **支持多种开发环境** | 包括 Python 和 ROS，满足不同开发需求。 |
-| **支持本地化拖动示教** | 直观的学习和操作方式，不依赖外部设备。 |
-| **高速数据接口** | 开放多种状态接口，支持复杂应用。 |
-| **定制化嵌入式软件** | 提供用户友好的操作界面，简化复杂任务。 |
-| **内置 2 寸显示屏** | 实时显示机械臂状态和操作反馈。 |
-| **多连接方式支持** | 灵活的场景应用，无缝接入现有系统。 |
-| **中心对称式构型** | 确保均衡稳定，提高操作精度。 |
+#### Worry-free Development, Empowering Innovation
+Known for its developer-friendly features, it is fully compatible with Python and ROS, two major development environments, seamlessly connecting to various developer tools. The rich programming interfaces open up vast innovation space for developers of all levels, allowing easy construction of basic applications and deep development of advanced applications.
 
-### 产品价值
+#### Precise Perception, Capturing Subtle Movements
+Equipped with 4096-bit high-precision magnetic encoder sensors for all joints, it captures every subtle movement change with exceptional accuracy and achieves perfect motion replication. It sets a new benchmark in motion capture, providing solid assurance for high-precision data acquisition.
 
-|                        |                                                                                                                 |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **增强实验和研究能力** | myArm M&C 具身人型复合套件  为研究人员提供了一个能够进行高精度操作的平台，帮助进行复杂数据分析和算法验证。                       |
-| **提高教育质量**       | 在教育环境中，该设备能够提供实践操作的机会，帮助学生更好地理解理论，并培养实际操作能力。                        |
-| **增加商业和展示机会** | M&C 具身人型复合套件  不仅限于实验室使用，其在技术展会和公众演示中的应用，能够吸引观众和潜在客户，增强技术展示的互动性和吸引力。 |
+#### High-speed Sampling, Locking in Data Essence
+With a data sampling rate of up to 100Hz, it handles high-speed motion scenarios with ease. It can accurately capture fleeting motion changes, ensuring that the collected data is complete, accurate, and of high quality, providing a reliable data source for subsequent data analysis and applications.
 
-### 行业贡献
+#### Multi-connectivity, Adapting to Various Scenarios
+It supports various connectivity options such as USB, wireless network (OTA firmware support), and Bluetooth, allowing users to flexibly choose based on different application scenarios. Whether for stable indoor connections or convenient outdoor remote control, it can be easily implemented, greatly enhancing the device’s application flexibility and adaptability to various scenarios.
 
-|                        |                                                                                                            |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------- |
-| **促进 STEM 教育**     | 通过提供高级的教学工具，激发学生对科学、技术、工程和数学领域的兴趣，培养未来的创新者。                     |
-| **推动技术采用**       | 通过提供易于使用且高度灵活的机器人平台，降低技术门槛，使更多机构能够接触和利用先进的机器人技术。           |
-| **激发创新和个人发展** | 为开发者和工程师提供一个开放的平台，支持跨学科的学习和创新，为机器人技术及相关领域的未来发展培养关键人才。 |
+#### Real-time Insight, Enhancing Interaction Quality
+Equipped with a 2-inch display and custom software, it provides real-time feedback on device status and data information. Users can intuitively monitor device operations without relying on external devices, promptly adjusting their operational strategies, significantly improving user interaction experience and operational convenience.
 
-## 2. 产品应用
+#### Modular Design, Flexible to Meet Needs
+Adopting a modular design concept, the body structure is clear and straightforward. This not only facilitates future upgrades and maintenance but also allows for customization based on the unique needs of different users. It easily adapts to a variety of complex and changing application scenarios, providing tailored solutions for users.
 
-<img src="..\..\resources\2-ProductInformation\1-ProductIntroduction\MC_app.png" alt="img-1" width="900" height=“auto” /><br>
+### Design Goals
 
-### 用户群体
+| **Design Goal**         | **Functionality**                                                                                                                                      |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Universal Multi-function Platform** | The myController S570 is suitable for a wide range of applications, including education, research, and commercial demonstrations. Its six degrees of freedom and two arm spans (750mm and 650mm) support performing complex motion control tasks such as precise positioning and path planning in various working environments. |
+| **Research and Education Support** | The myController S570 is ideal for machine learning and AI research, capable of performing high-precision experiments and technical demonstrations. It supports end-to-end data training and reproduction, as well as basic visual tasks, making it an ideal device for labs. |
+| **Programmability and Expandability** | The myController S570's high programmability allows users to customize and program according to emerging technologies, meeting future technical needs and optimizing operations and experimental results. |
+| **Technological Innovation and Knowledge Dissemination** | In commercial demonstrations, the myController S570 can serve as a platform to showcase the latest technological achievements, aiming to enhance the public’s understanding of science and technology, and promote the commercialization of technological innovations. |
+### Product Features
 
-|                              |                                                                                                                                                                    |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **高等教育机构和研究实验室** | myArm M&C 具身人型复合套件  是专为高精度实验和技术演示而设计的教学与科研工具。它能有效支持复杂数据分析、算法开发和验证活动，显著提升研究质量和教育效果。                            |
-| **技术开发者和工程师**       | 支持 Python 和 ROS 两种开发环境，myArm M&C 具身人型复合套件  适合需要个性化编程和系统集成的专业人员。其模块化设计和高度可编程性使其成为开发和测试新控制算法或机器人应用的理想平台。 |
-| **商业展示和公共展览组织者** | myArm M&C 具身人型复合套件  以其精密操作展示优势，成为科技展示和产品演示的首选设备。动态演示不仅吸引观众，还增强参与感，有效推广科技创新和产品。                                    |
-| **创新企业和初创公司**       | myArm M&C 具身人型复合套件  为寻求集成尖端机器人技术以提升产品功能或优化生产流程的企业提供强大支持。其出色的性能和适应性使其成为探索新技术和解决方案的理想选择。              |
+| **Feature Description**          | **Details**                                                                        |
+|----------------------------------|------------------------------------------------------------------------------------|
+| **14 Degrees of Freedom Modular Design** | A perfect combination of flexibility and scalability, suitable for complex operations. |
+| **Industrial-Grade Digital Servo Motors** | Ensures precise control and long-term stable operation of the robotic arm.         |
+| **High-Precision Encoders**      | Provides accurate position, speed, and acceleration information to optimize performance. |
+| **Supports Multiple Development Environments** | Includes Python and ROS, meeting diverse development needs.                     |
+| **Supports Localized Drag Teaching** | An intuitive learning and operation method, no external devices required.         |
+| **High-Speed Data Interfaces**  | Offers multiple status interfaces, supporting complex applications.               |
+| **Custom Embedded Software**     | Provides a user-friendly interface to simplify complex tasks.                    |
+| **Built-in 2-inch Display**      | Displays real-time robotic arm status and operation feedback.                     |
+| **Supports Multiple Connection Methods** | Flexible application in various scenarios, seamlessly integrates with existing systems. |
+| **Central Symmetry Configuration** | Ensures balanced stability and improves operation precision.                      |
 
-### 应用场景
+### Product Value
 
-| 用户群体               | 应用场景                                                                                       | 优势目标                                                                                                                                       |
-| ---------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| 教育领域教师和学生     | - STEM 教育<br>- 机器人项目<br>- 跨学科研究项目<br>- 机器人学科教具                            | - 提高学生对科技的兴趣<br>- 增强动手能力和解决问题的能力<br>- 促进创新思维和团队合作<br>- 作为机器人结构设计、电路设计和力学分析等学科建设工具 |
-| 技术开发者和工程师     | - 原型开发<br>- 实验研究<br>- 算法测试和验证<br>- 机器人运动学验证<br>- 机器人复合场景应用验证 | - 加速研究进展<br>- 连接理论与实践<br>- 推进技术创新<br>- 验证机器人运动学和复合场景应用                                                       |
-| 商业演示和营销专业人士 | - 展览展示<br>- 技术演示<br>- 品牌推广                                                         | - 吸引潜在客户和投资者<br>- 展示公司技术实力和创新产品<br>- 提升品牌影响力                                                                     |
-| 工程师和技术开发人员   | - 机器人运动学验证<br>- 机器人远程遥控场景探索和开发<br>- 机器学习、AI 和基于视觉任务<br>      | - 进行 C650 的验证机器操作<br>- 探索和开发机器人远程遥控应用<br>- 扩展机器人技术应用和场景的实用性                                             |
+|                                  |                                                                                                              |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------|
+| **Enhanced Experimental and Research Capabilities** | myController S570 provides a high-precision platform for researchers to conduct complex data analysis and algorithm validation. |
+| **Improved Educational Quality** | In educational environments, this device offers practical opportunities for students to better understand theories and develop practical skills. |
+| **Increased Commercial and Display Opportunities** | myController S570 is not limited to laboratory use; its application in technical exhibitions and public demonstrations can attract viewers and potential customers, enhancing the interactivity and appeal of technology showcases. |
 
-### 周边配件
+### Industry Contribution
 
-<img src="..\..\resources\2-ProductInformation\1-ProductIntroduction\M750tools.jpg" alt="img-1" width="1600" height=“auto” /><br>
-多样化的周边配件为 myArm M&C 具身人型复合套件  机械臂提供了广泛的功能扩展，使其适用于各种工业、研究和教育场景。用户通过结合这些配件，可以显著提高 myArm M&C 具身人型复合套件  机械臂的灵活性和实用性。
+|                                  |                                                                                                              |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------|
+| **Promoting STEM Education**    | By providing advanced teaching tools, it inspires students' interest in science, technology, engineering, and mathematics, cultivating future innovators. |
+| **Driving Technology Adoption** | By offering an easy-to-use and highly flexible robotic platform, it lowers the technological barrier, enabling more institutions to access and utilize advanced robotics technology. |
+| **Fostering Innovation and Personal Development** | Provides an open platform for developers and engineers to support interdisciplinary learning and innovation, cultivating key talent for the future of robotics and related fields. |
 
-##### myCobot 自适应夹爪
+## 2. Product Applications
 
-夹爪可自动调节以适配不同形状和大小的物体，专为执行复杂的抓取任务而设计，如处理不规则形状或易碎物品。其卓越的灵活性和适应性显著增强了机械臂的操作效能和应用广度。升级版自适应夹爪具备更强的夹持力，并兼容多种编程环境，适配多种工业级机械臂。
+![Product Image](../../resources/4-FunctionsAndApplications/6-SDKDevelopment/6.1-Wayofwearing/1_download/wear_5.jpg)
 
-##### myCobot 平行夹爪
+### Target Users
 
-专为需要精确控制的任务设计，如电子设备的组装和测试。夹爪的两个指尖平行移动，确保在抓取过程中物体稳定，理想用于处理均匀形状的物体。其结构紧凑，多个连接孔设计满足不同的安装需求，同时支持 IO 和串口控制，兼容各种工业级机械臂。
+|                                  |                                                                                                              |
+|----------------------------------|--------------------------------------------------------------------------------------------------------------|
+| **Higher Education Institutions and Research Laboratories** | The myController S570 is designed as a teaching and research tool for high-precision experiments and technical demonstrations. It effectively supports complex data analysis, algorithm development, and validation, significantly enhancing research quality and educational effectiveness. |
+| **Technical Developers and Engineers** | Supporting Python and ROS, the myController S570 is ideal for professionals who need customized programming and system integration. Its modular design and high programmability make it an ideal platform for developing and testing new control algorithms or robotic applications. |
+| **Commercial Display and Public Exhibition Organizers** | myController S570 showcases its precise operation, becoming the preferred device for technological displays and product demonstrations. Dynamic demonstrations not only attract viewers but also enhance engagement, effectively promoting technological innovations and products. |
+| **Innovative Enterprises and Startups** | myController S570 offers strong support for businesses seeking to integrate cutting-edge robotics technology to enhance product functionality or optimize production processes. Its exceptional performance and adaptability make it an ideal choice for exploring new technologies and solutions. |
 
-##### myCobot 柔性夹爪
+### Application Scenarios
 
-柔性夹爪适用于处理敏感或易损的物体，其夹持面柔软且有弹性，能有效减少对物体的压力，降低损坏风险。适合抓取玻璃、塑料或瓷器等易碎物品。指尖由橡胶制成，利用气压变形进行抓取，广泛应用于各种自动化和机器人领域，因其柔性、适应性和高效性而备受青睐。
+| **User Group**                  | **Application Scenarios**                                                                                     | **Benefits**                                                                                                                                         |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Educators and Students in Education** | - STEM Education<br>- Robotics Projects<br>- Interdisciplinary Research Projects<br>- Robotics Educational Tools | - Increases student interest in technology<br>- Enhances hands-on abilities and problem-solving skills<br>- Fosters innovative thinking and teamwork<br>- Serves as a tool for courses in robotics design, circuit design, and mechanics |
+| **Technical Developers and Engineers** | - Prototype Development<br>- Experimental Research<br>- Algorithm Testing and Validation<br>- Robotic Kinematics Verification<br>- Complex Scenario Application Testing | - Accelerates research progress<br>- Connects theory with practice<br>- Promotes technological innovation<br>- Validates robotic kinematics and complex scenario applications |
+| **Commercial and Marketing Professionals** | - Exhibitions<br>- Technical Demonstrations<br>- Brand Promotion                                                       | - Attracts potential customers and investors<br>- Demonstrates company technological strength and innovative products<br>- Enhances brand influence |
+| **Engineers and Technical Developers** | - Robotic Kinematics Verification<br>- Remote Control Scenarios Exploration and Development<br>- Machine Learning, AI, and Vision-Based Tasks | - Explores and develops robotic remote control applications<br>- Expands the practicality of robotic technology applications and scenarios |
+## 3. Supported Extended Development
 
-##### myCobot 垂直吸泵 V2.0
+|                |                                                                                                                                                                                                                                                      |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Python**     | - Provides interfaces for joint angle control, servo motor control, servo motor parameter configuration, Cartesian coordinate system control, etc.<br>- Supports advanced motion control and precise positioning, suitable for complex robotics research and application development.<br>- The driver library can be installed via PyPI, offering comprehensive interface support, suitable for more complex educational or research projects. |
+| **ROS**        | - Supports basic MoveIt functions such as keyboard control and basic path planning, with support for both ROS1 and ROS2.<br>- Strengthens real-time robotic arm display and status information collection through RVIZ simulation environment, suitable for advanced robotic path planning and operation research. |
+| **Hardware Interface**   | - Includes USB, etc., making it easy to connect various sensors and actuators.                                                                                                                                                                        |
+| **Software Library**     | - Provides a rich set of open-source libraries and APIs to simplify the development process.                                                                                                                                                            |
+| **System Compatibility** | - Compatible with Windows, Linux, and MacOS, adaptable to various development environments.                                                                                                                                                              |
 
-垂直吸泵 V2.0 是升级版的真空吸附系统，用于垂直提升光滑表面物体，如金属板、玻璃或塑料。新版本具有更强的吸附能力和更高的耐用性，特别适用于快速和重复的搬运作业。
+## 4. Purchase Link
 
-##### myCobot 双头吸泵
-
-双头吸泵配备两个独立吸盘，使机械臂能同时搬运两个物体或提供更大的稳定性和支持力，增强在装配线任务或多部件同时处理的应用中的效率。
-
-##### myCobot 摄像头法兰 V2.0
-
-摄像头法兰 V2.0 使标准摄像头能够安装至机械臂上，为机械臂提供必要的视觉反馈，特别适用于需要视觉识别的任务，如质量检查、颜色分拣或精确放置。
-
-##### myCobot 手机支架
-
-此配件让 myCobot 机械臂能够持有并操作智能手机或类似设备，适用于自动化测试手机应用、进行教育演示或使用手机摄像头进行特定场景下的操作。
-
-## 3. 支持的扩展开发
-
-<img src="..\..\resources\2-ProductInformation\1-ProductIntroduction\M750application3.png" alt="img-1" width="1600" height=“auto” /><br>
-
-myArm 系列机械臂在教育和科研领域中极具价值，特别是在 Python 和 ROS（Robot Operating System）这两个广泛使用的开发环境中。这些环境提供了强大的支持，使得 myArm 系列产品能够广泛应用于机器学习、人工智能研究、复杂运动控制以及视觉处理任务中。
-
-|                |                                                                                                                                                                                                                                                  |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Python**     | - 提供关节角度控制、伺服电机控制、伺服电机参数配置、笛卡尔坐标系控制等接口。<br>- 支持更高级的运动控制和精准定位，适合进行复杂的机器人学研究和应用开发。<br>- 驱动库可通过 PyPI 下载安装，提供全面的接口支持，适合需求更为复杂的教育或研究项目。 |
-| **ROS**        | - 支持 MoveIt 基本功能，如键盘控制和基础路径规划，提供 ROS1 和 ROS2 双版本支持。<br>- 通过 RVIZ 仿真环境加强实时机械臂显示和状态信息采集，适合进行更高级的机器人路径规划和操作研究。                                                             |
-| **硬件接口**   | - 包括 IO、USB 等，方便连接各种传感器和执行器。                                                                                                                                                                                                  |
-| **软件库**     | - 提供丰富的开源库和 API 来简化开发过程。                                                                                                                                                                                                        |
-| **系统兼容性** | - 兼容 Windows、Linux、MacOS，适应多种开发环境。                                                                                                                                                                                                 |
-
-## 4. 购买地址
-
-如果您有兴趣购买该设备，请点击下面的链接：  
-淘宝：[https://shop504055678.taobao.com](https://shop504055678.taobao.com)  
-Shopify：[https://shop.elephantrobotics.com/](https://shop.elephantrobotics.com/)  
-速卖通：[https://elephantrobotics.aliexpress.com/store/1101941423](https://elephantrobotics.aliexpress.com/store/1101941423)
+If you are interested in purchasing this device, please click the following links:  
+Taobao: [https://shop504055678.taobao.com](https://shop504055678.taobao.com)  
+Shopify: [https://shop.elephantrobotics.com/](https://shop.elephantrobotics.com/)  
+AliExpress: [https://elephantrobotics.aliexpress.com/store/1101941423](https://elephantrobotics.aliexpress.com/store/1101941423)
 
 ---
-
-[下一章 →](../2-ProductParameters/ProductParameters.md)
+[← Previous Chapter](../../2-ProductInformation/1-ProductIntroduction/1.1-ProductVideo.md) | 
+[Next Chapter →](../2-ProductParameters/ProductParameters.md)

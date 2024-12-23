@@ -1,25 +1,25 @@
-# SDK 开发指南
+# SDK Development Guide
 
-## 1 使用环境
+## 1. Operating Environment
 
-MyController S570 是一款高性能的机器人控制器，虽然它没有内置系统，但支持多种操作系统，包括 Windows 和 Linux。因此在使用过程中需要**外骨骼**和 **操作系统** 相结合。使用前请先准备好操作系统。
+The MyController S570 is a high-performance robotic controller. Although it does not have a built-in system, it supports multiple operating systems, including Windows and Linux. Therefore, it is essential to integrate the **exoskeleton** with the **operating system** during use. Please prepare the operating system before using the device.
 
-## 2 开发环境
+## 2. Development Environment
 
-为了满足机器人在不同场景下的多样化应用需求，我们对机器人进行了多种编程语言的适配。到目前为止，我们已经适配了以下主流编程语言，我们认为您可以使用以下任何一种语言进行开发。请务必严格按照说明进行操作。任何遗漏的步骤都可能导致相应语言无法成功运行。祝您顺利使用机器人。
+In order to meet the diverse application needs of the robot in various scenarios, we have adapted the robot to multiple programming languages. So far, we have adapted the following mainstream programming languages, and we believe you can develop using any of the following languages. Please follow the instructions strictly. Any omitted steps may result in failure to run the corresponding language. We wish you a successful experience with the robot.
 
-| **如果您希望使用以下编程语言， 请确保您的机器人已在应答器部分配置了 USB/Wi-Fi 模式，并确认连接正确。** |
-| :------------------------------------------------------------------------------------------------------------- 
+| **If you wish to use the following programming languages, please ensure that your robot is configured with USB/Wi-Fi mode in the responder section, and confirm that the connection is correct.** |
+| :------------------------------------------------------------------------------------------------------------- |
 
 - [6.1 Python](./5.1-BasedOnPythonDevelopmentAndUse/1_download.md)<br>
-  我们的机器人支持 Python，Python API 库的开发也日趋完善。机器人的关节角度、坐标、抓手和其他方面都可以通过 Python 进行控制。<br>
+  Our robot supports Python, and the development of the Python API library is becoming more refined. The robot's joint angles, coordinates, gripper, and other aspects can be controlled through Python.<br>
 
-- [6.2 ROS1](./5.2-DevelopmentAndUseBasedOnROS1/1_download.md)<br>ROS（Robot Operating System）作为一个开源的机器人操作系统，为机器人的开发和控制提供了无限的可能性。我们的机器人可以通过ROS丰富的控制功能，通过模块化的方式对机器人进行控制。无论是关节控制、路径规划还是感知反馈，ROS都提供了相应的工具和库，使得控制过程更加灵活和高效。</br>
+- [6.2 ROS1](./5.2-DevelopmentAndUseBasedOnROS1/1_download.md)<br>
+  ROS (Robot Operating System) is an open-source robot operating system that provides endless possibilities for robot development and control. Our robot can be controlled through ROS's rich control features and modular approach. Whether it's joint control, path planning, or perception feedback, ROS provides corresponding tools and libraries to make the control process more flexible and efficient.<br>
 
 <!-- - [6.3 Communication](./5.4-DevelopmentBasedOnCommunicationProtocolPackage//5.4.1-CommunicationDoc.md)<br>
-  如果您对信息论、编码和机器人通信功能有一定的了解，那么您就应该明白，所有的通信都源于数据传输。为了方便用户操作机器人，我们开放了基于串口通信的通信协议。您可以使用串口助手或将其封装到您熟悉的任何编程语言中来控制机器人。 -->
-
+  If you have a certain understanding of information theory, encoding, and robot communication, you should understand that all communication stems from data transmission. To facilitate users in operating the robot, we have made available a communication protocol based on serial communication. You can use a serial port assistant or encapsulate it in any programming language you are familiar with to control the robot. -->
 
 ---
 
-[← 上一章](../5-BasicFunctions/5.1-Minirobot/README.md) | [下一章 →](../7-SuccessfulCases/7-SuccessfulCases.md)
+[← Previous Chapter](../5-BasicFunctions/5.1-Minirobot/README.md) | [Next Chapter →](../7-SuccessfulCases/7-SuccessfulCases.md)

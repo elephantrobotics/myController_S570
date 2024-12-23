@@ -1,10 +1,10 @@
-# MyController S570 控制X1程序案例
+# MyController S570 Control X1 program case
 
-### 将外骨骼通过USB的方式连接上水星上，并保存以下脚本文件。
-**注意：确保每个串口号对应的设备是正确的**
+Connect the exoskeleton to Mercury via USB and save the following script file.
+**Note: Make sure each serial number corresponds to the correct device**
 
 ```bash
-# 数据处理的脚本文件 命名为：exoskeleton_api.py
+# The data processing script file is named exoskeleton_api.py
 import threading
 import time
 import serial
@@ -14,9 +14,9 @@ lock = threading.Lock()
 
 data_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 set_zero_data = [0xA5, 0x01, 0x00, 0x02, 0x5A]
-# 代表左右臂的指令
-hex_array_l = bytearray([0xA5, 0x01, 0x00, 0x06, 0x5A])  # 左臂
-hex_array_r = bytearray([0xA5, 0x01, 0x00, 0x07, 0x5A])  # 右臂
+# The command represents the left and right arms
+hex_array_l = bytearray([0xA5, 0x01, 0x00, 0x06, 0x5A])  # Left arm
+hex_array_r = bytearray([0xA5, 0x01, 0x00, 0x07, 0x5A])  # Right arm
 
 
 class exoskeleton:
@@ -24,8 +24,8 @@ class exoskeleton:
     def __init__(self, port):
         self.ser = serial.Serial(port=port, baudrate=1000000)
 
-    # 0：左臂
-    # 1: 右臂
+    # 0: Left arm
+    # 1: Right arm
     def get_data(self, arm):
         with lock:
             if arm == 0:
@@ -59,8 +59,8 @@ class exoskeleton:
             else:
                 return None
 
-    # 0：左臂
-    # 1: 右臂
+    # 0: Left arm
+    # 1: Right arm
     def set_zero(self, arm, arm_id):
         with lock:
             if arm == 0:
@@ -76,7 +76,7 @@ class exoskeleton:
             self.ser.write(bytearray(set_zero_data))
 ```
 ```bash
-# 控制脚本文件
+# Control script file
 import threading
 from pymycobot import Mercury
 from exoskeleton_api import exoskeleton
@@ -85,15 +85,15 @@ obj = exoskeleton(port="/dev/ttyACM4")
 ml = Mercury("/dev/left_arm")
 mr = Mercury("/dev/right_arm")
 
-# 设置双臂为速度融合模式
+# Set both arms to speed fusion mode
 ml.set_movement_type(2)
 mr.set_movement_type(2)
-# 设置夹爪运行模式
+# Set the jaw operation mode
 ml.set_gripper_mode(0)
 mr.set_gripper_mode(0)
 
 
-# 0 左臂，1 右臂
+# 0 left arm, 1 right arm
 def control_arm(arm):
     while True:
         if arm == 0:
@@ -117,15 +117,15 @@ def control_arm(arm):
         # mc.send_angles(mercury_list, 6)
 
 
-# 左臂
+# Left arm
 threading.Thread(target=control_arm, args=(0, )).start()
-# 右臂
+# Right arm
 threading.Thread(target=control_arm, args=(1, )).start()
 ```
 
-#### 注意：要将这两个文件放在同一路径下
+#### Note: Keep the two files in the same path
 
-### 程序成功运行之后即可用外骨骼控制水星X1
+#### After successful operation of the program, Mercury X1 can be controlled with the exoskeleton
 <video src="../../resources/7-SuccessfulCases/s570.mp4" controls="controls" width="800" height="500"></video>
 
 
