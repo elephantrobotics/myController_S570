@@ -1,39 +1,99 @@
 # API 使用说明
 
 > API (Application Programming Interface), 也称为应用程序编程接口函数，是预定义的函数。使用以下函数接口时，请在开始时输入以下代码导入我们的 API 库，否则将无法成功运行
+## 使用示例
 
 ```python
 # 例子
-from exoskeleton_api import exoskeleton
+from exoskeleton_api import Exoskeleton
 
-obj = exoskeleton(port="COM7")
+# 连接串口
+obj = Exoskeleton(port="COM5")
+
+# 获取双臂数据
+all_data = obj.get_all_data()
+print(all_data)
 
 # 获取左臂数据
-l_data = obj.get_data(0)
-# 获取右臂数据
-r_data = obj.get_data(1)
-print(l_data)
-print(r_data)
+left_data = obj.get_arm_data(1)
+print(left_data)
 
-# 设置左臂1关节零点
-set_zero(0, 1)
-# 设置右臂2关节零点
-set_zero(1, 2)
+# 获取右臂数据
+right_data = obj.get_arm_data(2)
+print(right_data)
+
+# 获取单臂单关节数据
+joint_data = obj.get_joint_data(1, 1)
+print(joint_data)
+
+# 设置当前位置为右臂J7零点
+obj.set_zero(2, 7)
+
+# 设置左臂atom屏幕颜色
+obj.set_color(1, 0, 255, 0)
 ```
 
-#### `get_data(arm)`
+#### `get_all_data()`
 
-- **功能：** 获取左右臂数据
+- **功能：** 获取双臂数据
+
+- **参数：** 无
+
+- **返回值：** 角度参数和手部控制器浮点列表：
+
+  ​	[[ 左臂J1, J2, J3, J4, J5, J6, J7, atom按钮，摇杆按钮，按钮1，按钮2，摇杆x, 摇杆y], 
+
+  ​	[ 右臂J1, J2, J3,  J4,  J5,  J6,  J7,  atom按钮，摇杆按钮， 按钮1，按钮2，摇杆x, 摇杆y]]
+
+  
+
+#### `get_arm_data(arm)`
+
+- **功能：** 获取单臂数据
 - **参数：** 
-  - `arm`：0左臂，1右臂
-- **返回值：** 角度参数和手部控制器浮点列表：[ J1, J2, J3,  J4,  J5,  J6,  J7, 按钮1，按钮2，摇杆x, 摇杆y]
+  - `arm`：1左臂，2右臂
+- **返回值：** 角度参数和手部控制器浮点列表：[ J1, J2, J3,  J4,  J5,  J6,  J7,   atom按钮，摇杆按钮，按钮1，按钮2，摇杆x, 摇杆y]
+
+
+
+#### `get_joint_data(arm, arm_id)`
+
+- **功能：** 获取单臂单关节数据
+- **参数：** 
+  - `arm`：1左臂，2右臂
+  - `arm_id`：关节id，范围 int 1-7
+- **返回值：** angle (int)
+
+
+
+#### `get_joint_data(arm, arm_id)`
+
+- **功能：** 获取单臂单关节数据
+- **参数：** 
+  - `arm`：1左臂，2右臂
+  - `arm_id`：关节id，范围 int 1-7
+- **返回值：** angle (int)
+
+
 
 #### `set_zero(arm, arm_id)`
 
-- **功能：** 设置零点
+- **功能：** 将当前位置设置为关节零位
 - **参数：** 
-  - `arm`：0左臂，1右臂
+  - `arm`：1左臂，2右臂
   - `arm_id`：关节id，范围 int 1-7
+- **返回值：** 无
+
+
+
+#### `set_color(arm, red, green, blue)`
+
+- **功能：** 设置atom屏幕颜色
+- **参数：** 
+  - `arm`：      1左臂，2右臂
+  - `red` ：     范围 int 0-255
+  - `green` ： 范围 int 0-255
+  - `blue`：     范围 int 0-255
 - **返回值：** 无
 
 **注意**：MyController S570 有着极高的兼容能力，适配大象机器人旗下所有产品，以及所有的6-7轴的通用机械臂。所以针对不同的机械臂，有着不同的API函数，请根据实际使用的机械臂型号进行选择。

@@ -1,6 +1,71 @@
 # 遥操控制机械臂案例
+###  1 串口通信
 
-###  mercury X1(7轴)
+```python
+# 例子
+from exoskeleton_api import Exoskeleton
+
+# 连接串口
+obj = Exoskeleton(port="COM5")
+
+# 获取双臂数据
+all_data = obj.get_all_data()
+print(all_data)
+
+# 获取左臂数据
+left_data = obj.get_arm_data(1)
+print(left_data)
+
+# 获取右臂数据
+right_data = obj.get_arm_data(2)
+print(right_data)
+
+# 获取单臂单关节数据
+joint_data = obj.get_joint_data(1, 1)
+print(joint_data)
+
+# 设置当前位置为右臂J7零点
+obj.set_zero(2, 7)
+
+# 设置左臂atom屏幕颜色
+obj.set_color(1, 0, 255, 0)
+```
+
+
+
+###  2 socket通信
+
+```python
+# 例子
+from exoskeleton_api import ExoskeletonSocket
+
+# 连接服务端
+obj = ExoskeletonSocket()
+
+# 获取双臂数据
+all_data = obj.get_all_data()
+print(all_data)
+
+# 获取左臂数据
+left_data = obj.get_arm_data(1)
+print(left_data)
+
+# 获取右臂数据
+right_data = obj.get_arm_data(2)
+print(right_data)
+
+# 获取单臂单关节数据
+joint_data = obj.get_joint_data(1, 1)
+print(joint_data)
+
+# 设置当前位置为右臂J7零点
+obj.set_zero(2, 7)
+
+# 设置左臂atom屏幕颜色
+obj.set_color(1, 0, 255, 0)
+```
+
+###  3 mercury X1(7轴)
 
 双臂协同控制
 

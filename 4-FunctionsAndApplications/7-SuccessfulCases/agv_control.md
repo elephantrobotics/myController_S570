@@ -99,7 +99,7 @@ threading.Thread(target=control_arm, args=(1, )).start()
 ```
 
 ### 程序成功运行之后即可用外骨骼控制AGV+280M5
-<video src="../../resources/7-SuccessfulCases/s570.mp4" controls="controls" width="800" height="500"></video>
+<video src="../../resources/4-FunctionsAndApplications/6-SDKDevelopment/6.1-Wayofwearing/1_download/水星（外骨骼）机器人_Final.mp4" controls="controls" width="800" height="500"></video>
 
 
 ---

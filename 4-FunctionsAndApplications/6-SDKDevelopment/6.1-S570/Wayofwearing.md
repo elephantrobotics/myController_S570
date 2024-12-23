@@ -1,7 +1,7 @@
 # MyController S570 穿戴方式
 
 ### 【第一步】 使用人员先穿戴好背心并扣好，再将外骨骼固定在背心上
-<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/6.1-Wayofwearing/1_download/wear_1.jpg" alt="img-1" width="450" height=800 /><br>
+<img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/6.1-Wayofwearing/1_download/wear_1.jpg" alt="img-1" width="750" height=500 /><br>
 
 <img src="../../../resources/4-FunctionsAndApplications/6-SDKDevelopment/6.1-Wayofwearing/1_download/wear_2.jpg" alt="img-1" width="900" height=“auto” /><br>
 

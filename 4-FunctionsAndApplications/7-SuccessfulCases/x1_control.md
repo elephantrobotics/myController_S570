@@ -5,76 +5,170 @@
 
 ```bash
 # 数据处理的脚本文件 命名为：exoskeleton_api.py
+import socket
 import threading
-import time
 import serial
 
 lock = threading.Lock()
 
 
-data_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-set_zero_data = [0xA5, 0x01, 0x00, 0x02, 0x5A]
-# 代表左右臂的指令
-hex_array_l = bytearray([0xA5, 0x01, 0x00, 0x06, 0x5A])  # 左臂
-hex_array_r = bytearray([0xA5, 0x01, 0x00, 0x07, 0x5A])  # 右臂
-
-
-class exoskeleton:
-
+class Exoskeleton:
     def __init__(self, port):
         self.ser = serial.Serial(port=port, baudrate=1000000)
 
-    # 0：左臂
-    # 1: 右臂
-    def get_data(self, arm):
-        with lock:
-            if arm == 0:
-                self.ser.write(hex_array_l)
-            elif arm == 1:
-                self.ser.write(hex_array_r)
-            else:
-                raise ValueError("error arm")
-            time.sleep(0.01)
-            count = self.ser.in_waiting
-            data = self.ser.read(count).hex()
-            print(data)
-            if len(data) == 84 and data[0:2] == "d5" and data[-2:] == "5d":
-                for i in range(7):
-                    data_h = data[8 + i * 10: 10 + i * 10]
-                    data_l = data[10 + i * 10: 12 + i * 10]
-                    encode = int(data_h + data_l, 16)
-                    if encode == 2048:
-                        angle = 0
-                    elif encode < 2048:
-                        angle = -180 * (2048 - encode) / 2048
-                    else:
-                        angle = 180 * (encode - 2048) / 2048
-                    data_list[i] = round(angle, 2)
-                button = bin(int(data[-10: -8]))[2:].rjust(4, "0")
-                data_list[7] = int(button[1])
-                data_list[8] = int(button[2])
-                data_list[9] = int(data[-6: -4], 16)
-                data_list[10] = int(data[-4: -2], 16)
-                return data_list
-            else:
-                return None
+    def _parse_data(self, data):
+        parsed_data = []
+        for i in range(7):
+            data_h = data[0 + i * 4: 2 + i * 4]
+            data_l = data[2 + i * 4: 4 + i * 4]
+            encode = int(data_h + data_l, 16)
+            angle = 0 if encode == 2048 else (180 * (encode - 2048) / 2048 if encode > 2048 else -180 * (2048 - encode) / 2048)
+            parsed_data.append(round(angle, 2))
 
-    # 0：左臂
-    # 1: 右臂
-    def set_zero(self, arm, arm_id):
+        button = bin(int(data[28: 30], 16))[2:].rjust(4, "0")
+        parsed_data.extend([int(button[-4]), int(button[-1]), int(button[-3]), int(button[-2]), int(data[30: 32], 16), int(data[32: 34], 16)])
+        return parsed_data
+
+    def _commmon(self, command_array):
         with lock:
-            if arm == 0:
-                set_zero_data[3] = 0x12
-            elif arm == 1:
-                set_zero_data[3] = 0x02
-            else:
-                raise ValueError("error arm")
-            if 1 <= arm_id <= 7:
-                set_zero_data[1] = arm_id
-            else:
-                raise ValueError("error id")
-            self.ser.write(bytearray(set_zero_data))
+            commmon_id = command_array[3]
+            self.ser.write(command_array)
+            start1 = self.ser.read().hex()
+            if start1 != "fe" or self.ser.read().hex() != "fe":
+                return None
+            data_len = int(self.ser.read().hex(), 16)
+            count = self.ser.in_waiting
+            if data_len == count:
+                data = self.ser.read(count).hex()
+                if data[-2:] == "fa" and int(data[0: 2], 6) == commmon_id:
+                    return data[2: -2]
+        return None
+
+    def get_all_data(self):
+        get_all_array = [0xFE, 0xFE, 0x02, 0x01, 0xFA]
+        data = self._commmon(get_all_array)
+        if data is None:
+            return None
+        left_data = self._parse_data(data)
+        right_data = self._parse_data(data[34:])
+        return [left_data, right_data]
+
+    def get_arm_data(self, arm):
+        if arm not in [1, 2]:
+            raise ValueError("error arm")
+
+        send_array = [0xFE, 0xFE, 0x03, 0x02, arm, 0xFA]
+        data = self._commmon(send_array)
+        if data is None:
+            return None
+        return self._parse_data(data)
+
+    def get_joint_data(self, arm, id):
+        if arm not in [1, 2] or id < 1 or id > 7:
+            raise ValueError("error arm or id")
+
+        send_array = [0xFE, 0xFE, 0x04, 0x03, arm, id, 0xFA]
+        data = self._commmon(send_array)
+        if data is None:
+            return None
+        encode = int(data[0: 2] + data[2: 4], 16)
+        angle = 0 if encode == 2048 else (180 * (encode - 2048) / 2048 if encode > 2048 else -180 * (2048 - encode) / 2048)
+        return round(angle, 2)
+
+    def set_zero(self, arm, id):
+        if arm not in [1, 2] or id < 1 or id > 7:
+            raise ValueError("error arm or id")
+
+        send_array = [0xFE, 0xFE, 0x04, 0x04, arm, id, 0xFA]
+        with lock:
+            self.ser.write(bytearray(send_array))
+
+    def set_color(self, arm, red, green, blue):
+        if arm not in [1, 2]:
+            raise ValueError("error arm")
+        send_array = [0xFE, 0xFE, 0x06, 0x05, arm, red, green, blue, 0xFA]
+        with lock:
+            self.ser.write(bytearray(send_array))
+
+
+class ExoskeletonSocket:
+    def __init__(self, ip='192.168.4.1', port=80):
+        self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client.connect((ip, port))
+
+    def _commmon(self, command_array):
+        with lock:
+            commmon_id = command_array[3]
+            self.client.sendall(bytearray(command_array))
+            if self.client.recv(1).hex() != "fe" or self.client.recv(1).hex() != "fe":
+                return None
+            data_len = int(self.client.recv(1).hex(), 16) * 2
+            data = self.client.recv(1024).hex()
+            if len(data) == data_len and data[-2:] == "fa" and int(data[0: 2], 6) == commmon_id:
+                return data[2: -2]
+        return None
+
+    def _parse_data(self, data):
+        parsed_data = []
+        for i in range(7):
+            data_h = data[0 + i * 4: 2 + i * 4]
+            data_l = data[2 + i * 4: 4 + i * 4]
+            encode = int(data_h + data_l, 16)
+            angle = 0 if encode == 2048 else (180 * (encode - 2048) / 2048 if encode > 2048 else -180 * (2048 - encode) / 2048)
+            parsed_data.append(round(angle, 2))
+
+        button = bin(int(data[28: 30], 16))[2:].rjust(4, "0")
+        parsed_data.extend([int(button[-4]), int(button[-1]), int(button[-3]), int(button[-2]), int(data[30: 32], 16), int(data[32: 34], 16)])
+        return parsed_data
+
+    def get_all_data(self):
+        get_all_array = [0xFE, 0xFE, 0x02, 0x01, 0xFA]
+        data = self._commmon(get_all_array)
+        if data is None:
+            return None
+        left_data = self._parse_data(data)
+        right_data = self._parse_data(data[34:])
+        return [left_data, right_data]
+
+    def get_arm_data(self, arm):
+        if arm not in [1, 2]:
+            raise ValueError("error arm")
+
+        send_array = [0xFE, 0xFE, 0x03, 0x02, arm, 0xFA]
+        data = self._commmon(send_array)
+        if data is None:
+            return None
+        return self._parse_data(data)
+
+    def get_joint_data(self, arm, id):
+        if arm not in [1, 2] or id < 1 or id > 7:
+            raise ValueError("error arm or id")
+
+        send_array = [0xFE, 0xFE, 0x04, 0x03, arm, id, 0xFA]
+        data = self._commmon(send_array)
+        if data is None:
+            return None
+        encode = int(data[0: 2] + data[2: 4], 16)
+        angle = 0 if encode == 2048 else (180 * (encode - 2048) / 2048 if encode > 2048 else -180 * (2048 - encode) / 2048)
+        return round(angle, 2)
+
+    def set_zero(self, arm, id):
+        if arm not in [1, 2] or id < 1 or id > 7:
+            raise ValueError("error arm or id")
+
+        send_array = [0xFE, 0xFE, 0x04, 0x04, arm, id, 0xFA]
+        with lock:
+            self.client.sendall(bytearray(send_array))
+
+    def set_color(self, arm, red, green, blue):
+        if arm not in [1, 2]:
+            raise ValueError("error arm")
+        send_array = [0xFE, 0xFE, 0x06, 0x05, arm, red, green, blue, 0xFA]
+        with lock:
+            self.client.sendall(bytearray(send_array))
+
 ```
+
 ```bash
 # 控制脚本文件
 import threading
@@ -126,7 +220,7 @@ threading.Thread(target=control_arm, args=(1, )).start()
 #### 注意：要将这两个文件放在同一路径下
 
 ### 程序成功运行之后即可用外骨骼控制水星X1
-<video src="../../resources/7-SuccessfulCases/s570.mp4" controls="controls" width="800" height="500"></video>
+<video src="../../resources/4-FunctionsAndApplications/6-SDKDevelopment/6.1-Wayofwearing/1_download/水星（外骨骼）机器人_Final.mp4" controls="controls" width="800" height="500"></video>
 
 
 ---
