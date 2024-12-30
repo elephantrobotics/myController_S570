@@ -1,7 +1,8 @@
 # MyController S570 控制AGV+280M5程序案例
-### 将外骨骼通过USB的方式连接上AGV上的Jetson Nano系统，并保存运行以下脚本文件。
-**注意：确保每个串口号对应的设备是正确的**
-
+### 将外骨骼通过USB的方式连接上AGV上的Jetson Nano系统, 并保存运行以下脚本文件。
+> **注意：确保每个串口号对应的设备是正确的**
+>
+> **启动该案例建议使用: atom版本为6.5; pymycobot版本为3.6.8**
 
 ```bash
 import threading
@@ -11,7 +12,7 @@ import serial
 from pymycobot import *
 from exoskeleton_api import exoskeleton
 from mercury_ros_api import MapNavigation
-from pymycobot.mycobot import MyCobot
+from pymycobot import MyCobot280
 from pymycobot.utils import get_port_list
 
 
