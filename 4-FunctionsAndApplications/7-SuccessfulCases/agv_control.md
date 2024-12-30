@@ -1,7 +1,8 @@
 # MyController S570 Control AGV+280M5 program case
 Connect the exoskeleton to the Jetson Nano system on the AGV via USB and save and run the following script file.
-**Note: Make sure each serial number corresponds to the correct device**
-
+> **Note: Make sure each serial number corresponds to the correct device**
+>
+> **Recommended to start this case: atom version 6.5; The pymycobot version 3.6.8**
 
 ```bash
 import threading
