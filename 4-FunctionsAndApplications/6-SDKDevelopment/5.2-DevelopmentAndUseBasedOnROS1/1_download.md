@@ -370,7 +370,7 @@ Git will be required for downloading ROS packages later. You can refer to the fo
 
 `mycobot_ros` is a ROS package developed by ElephantRobotics, designed for their desktop six-axis robotic arm series.
 
-Project repository: [https://github.com/elephantrobotics/mycobot_ros](https://github.com/elephantrobotics/mycobot_ros)
+Project repository: [https://github.com/elephantrobotics/mycobot_ros/tree/mycontroller_s570](https://github.com/elephantrobotics/mycobot_ros/tree/mycontroller_s570)
 
 ## Prerequisites
 
