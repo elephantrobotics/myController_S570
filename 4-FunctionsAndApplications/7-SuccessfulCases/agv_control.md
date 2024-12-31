@@ -16,7 +16,7 @@ from pymycobot import MyCobot280
 from pymycobot.utils import get_port_list
 
 
-mr = MyCobot("/dev/ttyACM3",115200)
+mr = MyCobot280("/dev/ttyACM3",115200)
 
 obj = exoskeleton(port="/dev/ttyACM4")
 

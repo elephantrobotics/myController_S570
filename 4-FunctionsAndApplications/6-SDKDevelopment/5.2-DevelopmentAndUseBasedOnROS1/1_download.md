@@ -357,7 +357,7 @@ https://www.runoob.com/git/git-tutorial.html
 
 mycobot_ros 是 ElephantRobotics 推出的，适配旗下桌面型六轴机械臂系列 的ROS 包。
 
-项目地址：[https://github.com/elephantrobotics/mycobot_ros](https://github.com/elephantrobotics/mycobot_ros)
+项目地址：[https://github.com/elephantrobotics/mycobot_ros/tree/mycontroller_s570](https://github.com/elephantrobotics/mycobot_ros/tree/mycontroller_s570)
 
 ##  前提
 
