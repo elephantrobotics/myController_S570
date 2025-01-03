@@ -6,9 +6,9 @@ Core Documentation
 
 This document contains comprehensive information ranging from product introduction, detailed technical parameters, to user guidelines and initial installation instructions. We will delve into the basic functions of MyController-S570, provide software development guides, and showcase successful application cases to help you understand how to effectively integrate MyController-S570 into various applications. In addition, we have provided a wealth of support and service information to ensure you receive the necessary assistance when facing any technical challenges.
 ### gitbook-en
-English version: [https://www.docs.elephantrobotics.com/docs/myController-S570-en](https://www.docs.elephantrobotics.com/docs/myController-S570-en)
+English version: [https://docs.elephantrobotics.com/docs/myController-S570-en](https://docs.elephantrobotics.com/docs/myController-S570-en)
 ### gitbook-cn
-Chinese version: [https://www.docs.elephantrobotics.com/docs/myController-S570-cn](https://www.docs.elephantrobotics.com/docs/myController-S570-cn)
+Chinese version: [https://docs.elephantrobotics.com/docs/myController-S570-cn](https://docs.elephantrobotics.com/docs/myController-S570-cn)
 
 Document Description
 ---
