@@ -4,6 +4,10 @@ Connect the exoskeleton to the Jetson Nano system on the AGV via USB and save an
 >
 > **Recommended to start this case: atom version 6.5; The pymycobot version 3.6.8**
 
+[download exoskeleton_api.py file](../../resources/exoskeleton_api.py)
+
+[download mercury_ros_api.py file](../../resources/mercury_ros_api.py)
+
 ```bash
 import threading
 import time

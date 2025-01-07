@@ -99,7 +99,7 @@ support@elephantrobotics.com
 We will respond within 1-2 working days.
 
 **WeChat**:  
-We provide one-on-one service only to users who purchase myArm M&C series products via WeChat.
+We provide one-on-one service only to users who purchase MyCOntroller S570 series products via WeChat.
 
 ![alt text](../resources/5-SupportAndService/WeChat-Code.jpg)
 

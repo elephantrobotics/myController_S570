@@ -55,7 +55,7 @@ Document Table of Contents
       - [Common ROS Tool Commands](4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/3_ROScode.md)
 
   - [5 Successful Cases](4-FunctionsAndApplications/7-SuccessfulCases/MC_control.md)
-    * [5.1 MyArm MC Usage Case](4-FunctionsAndApplications/7-SuccessfulCases/MC_control.md)
+    * [5.1 MyArm M750 Usage Case](4-FunctionsAndApplications/7-SuccessfulCases/MC_control.md)
     * [5.2 AGV + Mycobot280M5 Usage Case](4-FunctionsAndApplications/7-SuccessfulCases/agv_control.md)
     * [5.3 Mercury X1 Usage Case](4-FunctionsAndApplications/7-SuccessfulCases/x1_control.md)
 

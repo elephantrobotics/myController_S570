@@ -1,6 +1,6 @@
 # Acknowledgments
 
-We would like to express our deep gratitude to all the individuals involved in the development, testing, and improvement of the myArm series products (including myArm Controller 650, myArm Master 750, and the M&C suite). Every detail and every innovation in functionality is the result of the hard work and dedication of the team behind it.
+We would like to express our deep gratitude to all the individuals involved in the development, testing, and improvement of the MyController S570 series products . Every detail and every innovation in functionality is the result of the hard work and dedication of the team behind it.
 
 ### Special Thanks:
 
