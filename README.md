@@ -55,7 +55,7 @@
       - [ROS常用工具命令](4-FunctionsAndApplications/6-SDKDevelopment/5.2-DevelopmentAndUseBasedOnROS1/3_ROScode.md)
 
   - [5 成功案例](4-FunctionsAndApplications/7-SuccessfulCases/MC_control.md)
-    * [5.1 MyArm MC使用案例](4-FunctionsAndApplications/7-SuccessfulCases/MC_control.md)
+    * [5.1 MyArm M750使用案例](4-FunctionsAndApplications/7-SuccessfulCases/MC_control.md)
     * [5.2 AGV + Mycobot280M5使用案例](4-FunctionsAndApplications/7-SuccessfulCases/agv_control.md)
     * [5.3 水星X1使用案例](4-FunctionsAndApplications/7-SuccessfulCases/x1_control.md)
 

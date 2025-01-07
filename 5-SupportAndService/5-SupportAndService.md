@@ -97,7 +97,7 @@ support@elephantrobotics.com
 我们将在 1-2 个工作日内给予答复；
 
 **微信**:  
-我们只为通过微信购买 myArm M&C 系列产品的用户提供一对一服务。
+我们只为通过微信购买 MyController S570 系列产品的用户提供一对一服务。
 
 ![alt text](../resources/5-SupportAndService/WeChat-Code.jpg)
 

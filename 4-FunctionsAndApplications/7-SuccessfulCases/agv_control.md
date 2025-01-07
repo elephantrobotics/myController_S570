@@ -4,7 +4,12 @@
 >
 > **启动该案例建议使用: atom版本为6.5; pymycobot版本为3.6.8**
 
+[下载 exoskeleton_api.py 文件](../../resources/exoskeleton_api.py)
+
+[下载 mercury_ros_api.py 文件](../../resources/mercury_ros_api.py)
+
 ```bash
+# 控制脚本文件
 import threading
 import time
 
