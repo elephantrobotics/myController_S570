@@ -1,7 +1,77 @@
 # Remote control robot arm case
+#### The examples are based on the exoskeleton_api.py file
+[Get address](../../../4-FunctionsAndApplications/7-SuccessfulCases/x1_control.md)
 
-### mercury X1(7 axes)
 
+###  1 Serial communication
+
+```python
+# example
+from exoskeleton_api import Exoskeleton
+
+# Connect the serial port
+obj = Exoskeleton(port="COM5")
+
+# Get dual-arm data
+all_data = obj.get_all_data()
+print(all_data)
+
+# Get left arm data
+left_data = obj.get_arm_data(1)
+print(left_data)
+
+# Get right arm data
+right_data = obj.get_arm_data(2)
+print(right_data)
+
+# Obtain single arm and single joint data
+joint_data = obj.get_joint_data(1, 1)
+print(joint_data)
+
+# Set the current position to zero on right arm J7
+obj.set_zero(2, 7)
+
+# Set the left arm atom screen color
+obj.set_color(1, 0, 255, 0)
+```
+
+
+
+###  2 socket communication
+
+```python
+# example
+from exoskeleton_api import ExoskeletonSocket
+
+# Connection server
+obj = ExoskeletonSocket()
+
+# Get dual-arm data
+all_data = obj.get_all_data()
+print(all_data)
+
+# Get left arm data
+left_data = obj.get_arm_data(1)
+print(left_data)
+
+# Get right arm data
+right_data = obj.get_arm_data(2)
+print(right_data)
+
+# Obtain single arm and single joint data
+joint_data = obj.get_joint_data(1, 1)
+print(joint_data)
+
+# Set the current position to zero on right arm J7
+obj.set_zero(2, 7)
+
+# Set the left arm atom screen color
+obj.set_color(1, 0, 255, 0)
+```
+
+
+### 3 mercury X1(7 axes)
+#### pymycobot version 3.5.0b66 (and above)
 Dual-arm cooperative control
 
 ```python
