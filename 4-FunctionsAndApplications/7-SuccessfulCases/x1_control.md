@@ -160,9 +160,10 @@ obj.set_color(1, 0, 255, 0)
 
 ## 3.遥操控制机械臂案例
 
-### 2.1 mercury X1(7轴)
+###  mercury X1(7轴)
 
-双臂协同控制
+双臂协同控制  pymycobot 库版本：3.5.0b66
+
 ```bash
 # 数据处理的脚本文件 命名为：exoskeleton_api.py
 import socket
@@ -326,6 +327,7 @@ class ExoskeletonSocket:
         send_array = [0xFE, 0xFE, 0x06, 0x05, arm, red, green, blue, 0xFA]
         with lock:
             self.client.sendall(bytearray(send_array))
+
 
 ```
 

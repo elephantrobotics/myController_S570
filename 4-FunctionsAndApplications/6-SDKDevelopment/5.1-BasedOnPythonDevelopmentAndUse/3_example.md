@@ -1,4 +1,6 @@
 # 遥操控制机械臂案例
+#### 案例都基于 exoskeleton_api.py 文件
+[获取地址](../../7-SuccessfulCases/x1_control.md)
 ###  1 串口通信
 
 ```python
@@ -66,6 +68,8 @@ obj.set_color(1, 0, 255, 0)
 ```
 
 ###  3 mercury X1(7轴)
+#### pymycobot 版本为 3.5.0b66（及以上版本）
+
 
 双臂协同控制
 
