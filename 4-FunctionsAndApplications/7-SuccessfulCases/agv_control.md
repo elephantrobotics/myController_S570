@@ -1,81 +1,11 @@
 # MyController S570 Control AGV+280M5 program case
+
 Connect the exoskeleton to the Jetson Nano system on the AGV via USB and save and run the following script file.
+
 > **Note: Make sure each serial number corresponds to the correct device**
 >
 > **Recommended to start this case: atom version 6.5; The pymycobot version 3.6.8**
 
-```bash
-# The configuration file is exoskeleton_api.py
-import threading
-import time
-import serial
-
-lock = threading.Lock()
-
-
-data_list = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-set_zero_data = [0xA5, 0x01, 0x00, 0x02, 0x5A]
- 
-hex_array_l = bytearray([0xA5, 0x01, 0x00, 0x06, 0x5A])  
-hex_array_r = bytearray([0xA5, 0x01, 0x00, 0x07, 0x5A])  
-
-
-class exoskeleton:
-
-    def __init__(self, port):
-        self.ser = serial.Serial(port=port, baudrate=1000000)
-
-    # 0：left arm
-    # 1: right arm
-    def get_data(self, arm):
-        with lock:
-            if arm == 0:
-                self.ser.write(hex_array_l)
-            elif arm == 1:
-                self.ser.write(hex_array_r)
-            else:
-                raise ValueError("error arm")
-            time.sleep(0.01)
-            count = self.ser.in_waiting
-            data = self.ser.read(count).hex()
-            print(data)
-            if len(data) == 84 and data[0:2] == "d5" and data[-2:] == "5d":
-                for i in range(7):
-                    data_h = data[8 + i * 10: 10 + i * 10]
-                    data_l = data[10 + i * 10: 12 + i * 10]
-                    encode = int(data_h + data_l, 16)
-                    if encode == 2048:
-                        angle = 0
-                    elif encode < 2048:
-                        angle = -180 * (2048 - encode) / 2048
-                    else:
-                        angle = 180 * (encode - 2048) / 2048
-                    data_list[i] = round(angle, 2)
-                button = bin(int(data[-10: -8]))[2:].rjust(4, "0")
-                data_list[7] = int(button[1])
-                data_list[8] = int(button[2])
-                data_list[9] = int(data[-6: -4], 16)
-                data_list[10] = int(data[-4: -2], 16)
-                return data_list
-            else:
-                return None
-
-    # 0：left arm
-    # 1: right arm
-    def set_zero(self, arm, arm_id):
-        with lock:
-            if arm == 0:
-                set_zero_data[3] = 0x12
-            elif arm == 1:
-                set_zero_data[3] = 0x02
-            else:
-                raise ValueError("error arm")
-            if 1 <= arm_id <= 7:
-                set_zero_data[1] = arm_id
-            else:
-                raise ValueError("error id")
-            self.ser.write(bytearray(set_zero_data))
-```
 ```bash
 # The configuration file is mercury_ros_api.py
 import time
@@ -144,10 +74,10 @@ class MapNavigation:
 
     def getRobotVersion(self):
         return self.RobotVersion
-    
+
     def getSystemVersion(self):
         return self.SystemVersion
-    
+
     #voltage Callback
     def voltage_callback(self, msg):
         return msg.data
@@ -155,7 +85,7 @@ class MapNavigation:
     def initial_pose_callback(self,msg):
         #rospy.loginfo("Received Initial Pose:\n%s", msg)
         return msg
-    
+
     def goalCntCallback(self,goal_msg):
 
         self.pose_stamped.header = goal_msg.header
@@ -176,11 +106,11 @@ class MapNavigation:
         self.pose.pose.orientation.y = 0.0
         self.pose.pose.orientation.z = orientation_z
         self.pose.pose.orientation.w = orientation_w
-        
+
         rospy.sleep(1)
         self.pub_tempPose.publish(self.pose)
-        self.point_count += 1 
-        rospy.loginfo(' {} 对应 {} 号点位 pose: {}'.format(identifier,self.point_count, self.pose)) 
+        self.point_count += 1
+        rospy.loginfo(' {} 对应 {} 号点位 pose: {}'.format(identifier,self.point_count, self.pose))
         return self.point_count
 
     def clearPosition(self):
@@ -254,7 +184,7 @@ class MapNavigation:
             point_UnloadCount = self.setpoint("Unload",xGoal, yGoal, orientation_z, orientation_w)
         else:
             print("The navigation point has been set. clearPosition() is required to change the navigation.")
-    
+
     # HomePosition
     def getHomePosition(self):
         self.getPose("HomePosition",point_HomePositionCount)
@@ -274,7 +204,7 @@ class MapNavigation:
         self.getPose("Charge",point_ChargeCount)
 
     def goToCharge(self):
-        self.goTopoint("Charge",point_ChargeCount)        
+        self.goTopoint("Charge",point_ChargeCount)
 
     # Load
     def getLoad(self):
@@ -300,23 +230,23 @@ class MapNavigation:
         pose.pose.pose.position.x = xGoal
         pose.pose.pose.position.y = yGoal
         pose.pose.pose.position.z = 0.0
-        q = quaternion_from_euler(0, 0, 1.57)  
+        q = quaternion_from_euler(0, 0, 1.57)
         pose.pose.pose.orientation.x = 0.0
         pose.pose.pose.orientation.y = 0.0
         pose.pose.pose.orientation.z = orientation_z
         pose.pose.pose.orientation.w = orientation_w
-        pose.pose.covariance = [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
-         0.0,0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
+        pose.pose.covariance = [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+         0.0,0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
          0.0,0.0, 0.0, 0.0, covariance]
         rospy.sleep(1)
         self.pub_setpose.publish(pose)
         rospy.loginfo('Published robot pose: %s' % pose)
-    
+
     # move_base
     def moveToGoal(self, xGoal, yGoal, orientation_z, orientation_w):
         ac = actionlib.SimpleActionClient("move_base", MoveBaseAction)
         while(not ac.wait_for_server(rospy.Duration.from_sec(5.0))):
-      
+
             sys.exit(0)
 
         goal = MoveBaseGoal()
@@ -325,11 +255,11 @@ class MapNavigation:
         goal.target_pose.pose.position =  Point(xGoal, yGoal, 0)
         goal.target_pose.pose.orientation.x = 0.0
         goal.target_pose.pose.orientation.y = 0.0
-        goal.target_pose.pose.orientation.z = orientation_z 
+        goal.target_pose.pose.orientation.z = orientation_z
         goal.target_pose.pose.orientation.w = orientation_w
 
         rospy.loginfo("Sending goal location ...")
-        ac.send_goal(goal) 
+        ac.send_goal(goal)
 
         ac.wait_for_result(rospy.Duration(60))
 
@@ -343,7 +273,7 @@ class MapNavigation:
     def shutdown(self):
         rospy.loginfo("Quit program")
         rospy.sleep()
- 
+
     # speed command
     def pub_vel(self, x, y , theta):
         twist = Twist()
@@ -354,7 +284,7 @@ class MapNavigation:
         twist.angular.y = 0
         twist.angular.z = theta
         self.pub.publish(twist)
-    
+
     def vel_control(self,direction=[0,0,0],speed=0.0,control_time=0.0):
         """
         Function to control velocity.
@@ -397,12 +327,12 @@ class MapNavigation:
 
     def startMapping(self):
         try:
-            launch_command = "roslaunch turn_on_tringai_robot mapping.launch"  
+            launch_command = "roslaunch turn_on_tringai_robot mapping.launch"
             subprocess.run(['gnome-terminal', '-e', f"bash -c '{launch_command}; exec $SHELL'"])
         except subprocess.CalledProcessError as e :
             self.LastError = sys.exc_info()
             print(e)
-    
+
     def stopMapping(self):
         try:
             # Kill the corresponding process
@@ -427,7 +357,7 @@ class MapNavigation:
     def agvOn(self):
         try:
             # Start lidar and odometer communication
-            launch_command = "roslaunch turn_on_mercury_robot turn_on_mercury_robot.launch"  
+            launch_command = "roslaunch turn_on_mercury_robot turn_on_mercury_robot.launch"
             subprocess.run(['gnome-terminal', '-e', f"bash -c '{launch_command}; exec $SHELL'"])
         except Exception as e:
             self.LastError = sys.exc_info()
@@ -442,7 +372,7 @@ class MapNavigation:
         except Exception as e:
             self.LastError = sys.exc_info()
             print(e)
-    
+
     def isAgvOn(self):
         try:
             # Check whether there is a corresponding process
@@ -455,7 +385,7 @@ class MapNavigation:
         except Exception as e:
             self.LastError = sys.exc_info()
             print(e)
-        
+
     def batteryState(self):
         voltage_data = self.voltage_callback(None)
         return voltage_data
@@ -476,7 +406,7 @@ class MapNavigation:
 
             x = translation.x
             y = translation.y
-            
+
             euler = tf_conversions.transformations.euler_from_quaternion([rotation.x, rotation.y, rotation.z, rotation.w])
 
             tw = euler[2] # Yaw
@@ -489,19 +419,19 @@ class MapNavigation:
 
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as e:
             rospy.logerr("TF transformation query failed:{}".format(e))
-        
+
 
     def goToPosition(self,goal_x, goal_y, orientation_z, orientation_w):
         flag_feed_goalReached = self.moveToGoal(goal_x, goal_y , orientation_z, orientation_w)
         return flag_feed_goalReached
-    
+
     def pause(self):
         if not self.is_running:
             self.is_running = True
             self.thread = threading.Thread(target=self.stop_navigation, daemon=True)
             self.thread.start()
 
-    def stop_navigation(self):       
+    def stop_navigation(self):
         while self.is_running:
             goal_id = GoalID()
             self.pub_cancel.publish(goal_id)
@@ -514,7 +444,7 @@ class MapNavigation:
             twist.angular.z = 0.0
             self.pub.publish(twist)
             rospy.sleep(0.1)
-    
+
     def unpause(self):
         self.is_running = False
         if self.thread is not None:
@@ -531,11 +461,11 @@ class MapNavigation:
         else:
             print("No recent errors.")
         return self.LastError
-    
+
     def startNavigation(self):
         try:
             # Start lidar and odometer communication
-            launch_command = "roslaunch myagv_navigation navigation_active.launch"  
+            launch_command = "roslaunch myagv_navigation navigation_active.launch"
             subprocess.run(['gnome-terminal', '-e', f"bash -c '{launch_command}; exec $SHELL'"])
         except Exception as e:
             self.LastError = sys.exc_info()
@@ -558,12 +488,11 @@ if __name__ == '__main__':
 
     # map_navigation.getLastError()
 
-    # map_navigation.turnRight(0.2,5) 
+    # map_navigation.turnRight(0.2,5)
 
     # map_navigation.goStraight(0.2,5)
 
 ```
-
 
 ```bash
 import threading
@@ -571,7 +500,7 @@ import time
 
 import serial
 from pymycobot import *
-from exoskeleton_api import exoskeleton
+from pymycobot.exoskeleton import Exoskeleton
 from mercury_ros_api import MapNavigation
 from pymycobot import MyCobot280
 from pymycobot.utils import get_port_list
@@ -579,7 +508,7 @@ from pymycobot.utils import get_port_list
 
 mr = MyCobot280("/dev/ttyACM3",115200)
 
-obj = exoskeleton(port="/dev/ttyACM4")
+obj = Exoskeleton(port="/dev/ttyACM4")
 
 
 map_navigation = MapNavigation()
@@ -661,11 +590,9 @@ threading.Thread(target=control_arm, args=(1, )).start()
 ```
 
 ### The AGV+280M5 can be controlled with the exoskeleton after the program has been successfully run
+
 <video src="../../resources/7-SuccessfulCases/s570.mp4" controls="controls" width="800" height="500"></video>
 
-
 ---
-
-
 
 ---
