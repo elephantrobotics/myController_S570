@@ -89,6 +89,13 @@
 | 2D规格尺寸    | 支持                  |      |
 
 
+#### 2.5 外骨骼操作设备图纸
+![外骨骼操作设备图纸](../../resources/2-ProductInformation/2-ProductParameters/外骨骼操作设备（中文版）.jpg)
+
+
+#### 2.6 运动学模型
+![运动学模型](../../resources/2-ProductInformation/2-ProductParameters/运动学模型.png)
+
 ---
 
 [← 上一章](../1-ProductIntroduction/1-ProductIntroduction.md) | [下一章 →](../../4-FunctionsAndApplications/6-SDKDevelopment/6.1-S570/Wayofwearing.md)
