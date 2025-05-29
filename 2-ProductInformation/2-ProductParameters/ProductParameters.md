@@ -84,6 +84,15 @@
 | 3D-Step            | Supported                 |       |
 | 2D Specifications  | Supported                 |       |
 
+
+#### 2.5 Exoskeleton operating equipment drawings
+![Exoskeleton operating equipment drawings](../../resources/2-ProductInformation/2-ProductParameters/外骨骼操作设备（英文版）.jpg)
+
+
+#### 2.6 kinematic model
+![kinematic model](../../resources/2-ProductInformation/2-ProductParameters/运动学模型.png)
+
+
 ---
 
 [← Previous Chapter](../1-ProductIntroduction/1-ProductIntroduction.md) | [Next Chapter →](../../4-FunctionsAndApplications/6-SDKDevelopment/6.1-S570/Wayofwearing.md)
