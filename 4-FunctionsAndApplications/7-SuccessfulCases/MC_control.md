@@ -19,7 +19,7 @@ mercury_list = [arm_data[1], 0, 0, 0, 0, 0, 0]
 # 控制脚本
 import threading
 from pymycobot import Mercury, MyArmM
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 
 obj = Exoskeleton(port="COM15")  # 外骨骼串口号
 ml = MyArmM("COM41", 1000000)  # 左M750臂串口号

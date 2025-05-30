@@ -30,7 +30,7 @@
 
 ```python
 # 例子
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 
 # 连接串口
 obj = Exoskeleton(port="COM5")
@@ -62,7 +62,7 @@ obj.set_color(1, 0, 255, 0)
 
 ```python
 # 例子
-from pymycobot.exoskeletonsocket import ExoskeletonSocket
+from pymycobot import ExoskeletonSocket
 
 # 连接服务端
 obj = ExoskeletonSocket()
@@ -100,7 +100,7 @@ obj.set_color(1, 0, 255, 0)
 # 本文件为控制文件，命名为：MercuryControl.py
 import threading
 from pymycobot import Mercury
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 
 obj = Exoskeleton(port="/dev/ttyACM4")
 ml = Mercury("/dev/left_arm")
@@ -164,7 +164,7 @@ threading.Thread(target=control_arm, args=(2, )).start()
 import threading
 from pymycobot import Mercury
 import time
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 import os
 
 os.system("sudo chmod 777 /dev/ttyACM*")
@@ -320,7 +320,7 @@ threading.Thread(target=control_arm, args=(2,)).start()
 import threading
 from pymycobot import Mercury
 import time
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 import os
 
 os.system("sudo chmod 777 /dev/ttyACM*")

@@ -5,7 +5,7 @@
 ## 安装 python 库
 
 ```
-pip install pymycobot
+https://github.com/elephantrobotics/pymycobot.git
 ```
 
 ## 使用示例
@@ -14,7 +14,7 @@ pip install pymycobot
 
 ```python
 # 例子
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 
 # 连接串口
 obj = Exoskeleton(port="COM5")
@@ -52,7 +52,7 @@ obj.get_basic_version()
 
 ```python
 # 例子
-from pymycobot.exoskeleton import ExoskeletonSocket
+from pymycobot import ExoskeletonSocket
 
 # 连接串口
 obj = ExoskeletonSocket()
