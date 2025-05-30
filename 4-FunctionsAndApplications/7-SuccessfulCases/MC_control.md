@@ -17,7 +17,7 @@ Other joints are judged in turn
 # Control script
 import threading
 from pymycobot import Mercury, MyArmM
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 
 obj = Exoskeleton(port="COM15")  # Exoskeleton serial port
 ml = MyArmM("COM41", 1000000)  # Left M750 arm serial port

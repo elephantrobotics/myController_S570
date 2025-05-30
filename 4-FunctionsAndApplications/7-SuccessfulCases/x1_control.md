@@ -29,7 +29,7 @@ Turn off Bluetooth: press button C
 
 ```python
 # example
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 
 # Connect the serial port
 obj = Exoskeleton(port="COM5")
@@ -61,7 +61,7 @@ obj.set_color(1, 0, 255, 0)
 
 ```python
 # example
-from pymycobot.exoskeletonsocket import ExoskeletonSocket
+from pymycobot import ExoskeletonSocket
 
 # Connection server
 obj = ExoskeletonSocket()
@@ -97,7 +97,7 @@ obj.set_color(1, 0, 255, 0)
 # This is a control file named MercuryControl.py
 import threading
 from pymycobot import Mercury
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 
 obj = Exoskeleton(port="/dev/ttyACM4")
 ml = Mercury("/dev/left_arm")
@@ -161,7 +161,7 @@ Source code
 import threading
 from pymycobot import Mercury
 import time
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 import os
 
 os.system("sudo chmod 777 /dev/ttyACM*")

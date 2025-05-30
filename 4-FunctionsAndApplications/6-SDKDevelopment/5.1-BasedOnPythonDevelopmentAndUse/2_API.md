@@ -4,7 +4,7 @@ Application Programming Interface (API), also known as application Programming i
 
 Install the python library
 
-` ` `pip install pymycobot` ` `
+` ` `https://github.com/elephantrobotics/pymycobot.git` ` `
 
 ## Usage Example
 
@@ -16,7 +16,7 @@ Install the python library
 
 ```python
 # Example
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 
 # Connect to serial port
 obj = Exoskeleton(port="COM5")
@@ -54,7 +54,7 @@ obj.get_basic_version()
 
 ```python
 # Example
-from pymycobot.exoskeleton import ExoskeletonSocket
+from pymycobot import ExoskeletonSocket
 
 # Connect to socket
 obj = ExoskeletonSocket()

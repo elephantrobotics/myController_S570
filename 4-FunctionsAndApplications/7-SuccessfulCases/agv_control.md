@@ -500,7 +500,7 @@ import time
 
 import serial
 from pymycobot import *
-from pymycobot.exoskeleton import Exoskeleton
+from pymycobot import Exoskeleton
 from mercury_ros_api import MapNavigation
 from pymycobot import MyCobot280
 from pymycobot.utils import get_port_list
