@@ -91,9 +91,10 @@ obj.set_color(1, 0, 255, 0)
 
 ## 2 Remote control robot arm case
 
-### mercury X1(7-axis)
+### mercury X1(7-axis)  
 
 ```bash
+# The version of pymycobot should be 4.0.0 or above
 # This is a control file named MercuryControl.py
 import threading
 from pymycobot import Mercury
@@ -106,8 +107,8 @@ mr = Mercury("/dev/right_arm")
 ml.set_vr_mode(1)
 mr.set_vr_mode(1)
 # 设置双臂为速度融合模式
-ml.set_movement_type(2)
-mr.set_movement_type(2)
+ml.set_movement_type(3)
+mr.set_movement_type(3)
 # 设置夹爪运行模式
 ml.set_gripper_mode(0)
 mr.set_gripper_mode(0)
@@ -423,14 +424,14 @@ def control_arm(arm):
                 else:
                     TI = 3
 
-                if arm_data[9] == 0:
-                    threading.Thread(target=gripper_control_close, args=(mc,)).start()
+            if arm_data[9] == 0:
+                threading.Thread(target=gripper_control_close, args=(mc,)).start()
 
-                elif arm_data[10] == 0:
-                    threading.Thread(target=gripper_control_open, args=(mc,)).start()
+            elif arm_data[10] == 0:
+                threading.Thread(target=gripper_control_open, args=(mc,)).start()
 
-                if arm_data[9] == 0 and arm_data[10] == 0:
-                    time.sleep(0.01)
+            if arm_data[9] == 0 and arm_data[10] == 0:
+                time.sleep(0.01)
                     continue
 
             mc.send_angles(mercury_list, TI, _async=True)
