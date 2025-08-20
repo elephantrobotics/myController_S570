@@ -94,7 +94,7 @@ obj.set_color(1, 0, 255, 0)
 
 ### mercury X1(7 轴)
 
-双臂协同控制 pymycobot 库版本：3.5.0b66
+双臂协同控制 pymycobot 库版本：4.0.0及以上版本
 
 ```bash
 # 本文件为控制文件，命名为：MercuryControl.py
@@ -102,15 +102,15 @@ import threading
 from pymycobot import Mercury
 from pymycobot import Exoskeleton
 
-obj = Exoskeleton(port="/dev/ttyACM4")
+obj = Exoskeleton(port="/dev/ttyACM4") #根据外骨骼串口号更改
 ml = Mercury("/dev/left_arm")
 mr = Mercury("/dev/right_arm")
 
 ml.set_vr_mode(1)
 mr.set_vr_mode(1)
 # 设置双臂为速度融合模式
-ml.set_movement_type(2)
-mr.set_movement_type(2)
+ml.set_movement_type(3)
+mr.set_movement_type(3)
 # 设置夹爪运行模式
 ml.set_gripper_mode(0)
 mr.set_gripper_mode(0)
@@ -432,15 +432,15 @@ def control_arm(arm):
                 else:
                     TI = 3
 
-                if arm_data[9] == 0:
-                    threading.Thread(target=gripper_control_close, args=(mc,)).start()
+            if arm_data[9] == 0:
+                threading.Thread(target=gripper_control_close, args=(mc,)).start()
 
-                elif arm_data[10] == 0:
-                    threading.Thread(target=gripper_control_open, args=(mc,)).start()
+            elif arm_data[10] == 0:
+                threading.Thread(target=gripper_control_open, args=(mc,)).start()
 
-                if arm_data[9] == 0 and arm_data[10] == 0:
-                    time.sleep(0.01)
-                    continue
+            if arm_data[9] == 0 and arm_data[10] == 0:
+                time.sleep(0.01)
+                continue
 
             mc.send_angles(mercury_list, TI, _async=True)
             time.sleep(0.01)
