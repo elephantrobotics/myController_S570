@@ -138,7 +138,7 @@ def control_arm(arm):
             mc.set_gripper_state(1, 100)
         elif arm_data[10] == 0:
             mc.set_gripper_state(0, 100)
-        mc.send_angles(mercury_list, 6)
+        mc.send_angles(mercury_list, 6, _async=True)
 
 
 # 左臂
