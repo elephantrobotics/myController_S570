@@ -96,6 +96,11 @@
 #### 2.6 运动学模型
 ![运动学模型](../../resources/2-ProductInformation/2-ProductParameters/运动学模型.png)
 
+
+#### 2.7 DH参数
+![运动学模型](../../resources/2-ProductInformation/2-ProductParameters/ex.drawio.png)
+
+
 ---
 
 [← 上一章](../1-ProductIntroduction/1-ProductIntroduction.md) | [下一章 →](../../4-FunctionsAndApplications/6-SDKDevelopment/6.1-S570/Wayofwearing.md)
