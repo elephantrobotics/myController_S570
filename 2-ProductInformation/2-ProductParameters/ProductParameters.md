@@ -93,6 +93,9 @@
 ![kinematic model](../../resources/2-ProductInformation/2-ProductParameters/运动学模型.png)
 
 
+#### 2.7 DH Parameter
+![kinematic model](../../resources/2-ProductInformation/2-ProductParameters/ex.drawio.png)
+
 ---
 
 [← Previous Chapter](../1-ProductIntroduction/1-ProductIntroduction.md) | [Next Chapter →](../../4-FunctionsAndApplications/6-SDKDevelopment/6.1-S570/Wayofwearing.md)
