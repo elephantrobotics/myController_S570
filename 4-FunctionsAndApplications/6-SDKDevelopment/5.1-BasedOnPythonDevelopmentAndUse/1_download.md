@@ -110,8 +110,7 @@ PyCharm is a powerful Python editor with cross-platform support. This section in
 
 - **Firmware Programming**: The firmware is the system's control program for driving the robot. [**MyStudio**](https://docs.elephantrobotics.com/docs/gitbook-en/4-BasicApplication/4.1-myStudio/).
 
-  - **M5Stack Version**: The `Basic` at the bottom needs to be programmed with `minirobot`. After the programming is complete, select the `Transponder` function (this function is used to receive and forward the commands sent by the bottom Basic, thus executing the target action). Click `Press A`, and if the prompt `Atom: OK` appears, the programming is successful. Additionally, the Atom at the end of the M5 version is programmed with the latest version of atomMain, which is pre-programmed from the factory and does not require programming.
-  - **Pi \ JetsonNano Version**: The Atom at the end of the Pi and JetsonNano versions is programmed with the latest version of atomMain, which is pre-programmed from the factory and does not require programming.
+  - The `Basic` module of the exoskeleton requires the `minirobot` firmware to be flashed. Additionally, the `Atom` module located at the end of the exoskeleton should be flashed with the latest version of `atomMain`; however, as this is pre-flashed at the factory, manual flashing is not required.
 
 - **Installing pymycobot**: Open a console terminal (shortcut `Win+R`, type `cmd` to open the terminal), and enter the following command:
 
