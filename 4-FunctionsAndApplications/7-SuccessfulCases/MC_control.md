@@ -18,76 +18,182 @@ mercury_list = [arm_data[1], 0, 0, 0, 0, 0, 0]
 ```bash
 # 控制脚本
 import threading
+import time
 from pymycobot import Mercury, MyArmM
-from pymycobot import Exoskeleton
-
-obj = Exoskeleton(port="COM15")  # 外骨骼串口号
-ml = MyArmM("COM41", 1000000)  # 左M750臂串口号
-mr = MyArmM("COM36", 1000000)  # 右M750臂串口号
+from pymycobot import ExoskeletonSocket,Exoskeleton
 
 
+# 初始化设备
+#obj = Exoskeleton(port="COM15")  # 外骨骼串口号
+obj = ExoskeletonSocket("192.168.4.1", 80)  # 外骨骼 Wi-Fi 连接
+ml = MyArmM("COM5", 1000000)  # 左M750臂串口号
+mr = MyArmM("COM5", 1000000)  # 右M750臂串口号
 
-# 0 左臂，1 右臂
+# ========== 关节限位配置 ==========
+# 根据提供的参数填写（单位：度）
+# 格式：(最小值, 最大值)
+JOINT_LIMITS = [
+    (-163, 163),  # 关节1
+    (-58, 93),  # 关节2
+    (-90, 73),  # 关节3
+    (-150, 148),  # 关节4
+    (-89, 85),  # 关节5
+    (-148, 148),  # 关节6
+    (-116, 0),  # 关节7（夹爪）
+]
+
+# 夹爪角度定义
+GRIPPER_CLOSE = -116  # 闭合
+GRIPPER_OPEN = 0  # 张开
+
+
+def clamp_angles(angles):
+    """
+    将角度列表限制在安全范围内
+    超出限位的角度会被钳制到最近的边界值
+    """
+    clamped = []
+    for i, angle in enumerate(angles):
+        if i >= len(JOINT_LIMITS):
+            clamped.append(angle)
+            continue
+
+        low, high = JOINT_LIMITS[i]
+
+        if angle < low:
+            print(f"⚠️ 关节{i + 1} 角度 {angle:.1f}° 低于下限 {low}°，已限制为 {low}°")
+            clamped.append(low)
+        elif angle > high:
+            print(f"⚠️ 关节{i + 1} 角度 {angle:.1f}° 超过上限 {high}°，已限制为 {high}°")
+            clamped.append(high)
+        else:
+            clamped.append(angle)
+
+    return clamped
+
+
+def check_joints_limits(angles):
+    """
+    检查所有关节角度是否在限位内
+    返回 (是否全部合法, 修正后的角度列表)
+    """
+    all_valid = True
+    clamped = []
+
+    for i, angle in enumerate(angles):
+        if i >= len(JOINT_LIMITS):
+            clamped.append(angle)
+            continue
+
+        low, high = JOINT_LIMITS[i]
+
+        if angle < low or angle > high:
+            print(f"❌ 关节{i + 1} 角度 {angle:.1f}° 超出限位范围 [{low}°, {high}°]")
+            all_valid = False
+
+        # 钳制角度
+        clamped_angle = max(min(angle, high), low)
+        clamped.append(clamped_angle)
+
+    return all_valid, clamped
+
 def control_arm(arm):
+    """
+    arm: 1 左臂, 2 右臂
+    """
     while True:
-        if arm == 0:
-            arm_data = obj.get_data(0)
-            print("l: ", arm_data)
-            mc = ml
-            mercury_list = [
-                arm_data[1] + 70, -arm_data[0], arm_data[3], arm_data[4],
-                -arm_data[5] + 50, arm_data[6], 0
-            ]
-            # 设置夹爪角度，忽略返回值异常
-            if arm_data[7] == 0:
-                try:
-                    mercury_list[6] = -100
-                except Exception as e:
-                    print(f"Warning: Failed to set angle -100. Error: {e}")
+        try:
+            if arm == 1:
+                arm_data = obj.get_arm_data(1)
+                print("l: ", arm_data)
+                mc = ml
 
-            elif arm_data[8] == 0:
-                try:
-                    mercury_list[6] = 0
-                except Exception as e:
-                    print(f"Warning: Failed to set angle 0. Error: {e}")
-            try:
-                mc.set_joints_angle(mercury_list, 10)
-                time.sleep(0.01)
-            except:
-                pass
-        elif arm == 1:
-            arm_data = obj.get_data(1)
-            print("r: ", arm_data)
-            mc = mr
-
-            mercury_list = [
-                -arm_data[1] - 50, arm_data[0], arm_data[3], arm_data[4],
-                -arm_data[5] + 50, arm_data[6], 0
-            ]
-            # 设置夹爪角度，忽略返回值异常
-            if arm_data[7] == 0:
-                try:
-                    mercury_list[6] = -100
-                except Exception as e:
-                    print(f"Warning: Failed to set angle -100. Error: {e}")
-
-            elif arm_data[8] == 0:
-                try:
-                    mercury_list[6] = 0
-                except Exception as e:
-                    print(f"Warning: Failed to set angle 0. Error: {e}")
-
-            try:
-                mc.set_joints_angle(mercury_list, 10)
-                time.sleep(0.01)
-            except:
-                pass
+                # 根据外骨骼数据计算目标角度
+                # 根据实际映射关系调整
+                mercury_list = [
+                    arm_data[1] + 70,
+                    -arm_data[0],
+                    arm_data[3],
+                    arm_data[4]-90,
+                    -arm_data[5] + 50,
+                    arm_data[6],
+                    0
+                ]
 
 
-# 左臂
-threading.Thread(target=control_arm, args=(0,)).start()
-# 右臂
-threading.Thread(target=control_arm, args=(1,)).start()
+                # ========== 夹爪控制 ==========
+                if arm_data[10] == 1:
+                    mercury_list[6] = GRIPPER_CLOSE
+                    print("🔧 夹爪闭合")
+                elif  arm_data[11] == 1:
+                    mercury_list[6] = GRIPPER_OPEN
+                    print("🔧 夹爪张开")
+
+                # 如果两个按钮同时按下，跳过本次
+                if len(arm_data) > 7 and arm_data[6] == 0 and arm_data[7] == 0:
+                    print("⚠️ 两个按钮同时按下，跳过本次")
+                    time.sleep(0.01)
+                    continue
+
+            elif arm == 2:
+                arm_data = obj.get_arm_data(2)
+                print("r: ", arm_data)
+                mc = mr
+
+                # 根据外骨骼数据计算目标角度
+                mercury_list = [
+                    -arm_data[1] - 50,
+                    -arm_data[0],
+                    arm_data[3]-10,
+                    arm_data[4]+90,
+                    -arm_data[5] + 50,
+                    arm_data[6], 0
+                ]
+
+
+                if arm_data[10] == 1:
+                    mercury_list[6] = GRIPPER_CLOSE
+                    print("🔧 夹爪闭合")
+                elif  arm_data[11] == 1:
+                    mercury_list[6] = GRIPPER_OPEN
+                    print("🔧 夹爪张开")
+
+                # 如果两个按钮同时按下，跳过本次
+                if len(arm_data) > 7 and arm_data[6] == 0 and arm_data[7] == 0:
+                    print("⚠️ 两个按钮同时按下，跳过本次")
+                    time.sleep(0.01)
+                    continue
+            else:
+                raise ValueError("error arm: 1 左臂, 2 右臂")
+
+            # ========== 限位检查 ==========
+            all_valid, clamped_list = check_joints_limits(mercury_list)
+
+            # 始终使用修正后的角度发送（确保不超限）
+            mc.set_joints_angle(clamped_list, 10)
+
+            if all_valid:
+                print(f"✅ 指令已发送: {[round(a, 1) for a in clamped_list]}")
+            else:
+                print(f"⚠️ 已修正后发送: {[round(a, 1) for a in clamped_list]}")
+
+            time.sleep(0.01)
+
+        except Exception as e:
+            print(f"控制循环异常: {e}")
+            time.sleep(0.1)
+
+
+# 启动左右臂控制线程
+threading.Thread(target=control_arm, args=(1,), daemon=True).start()  # 左臂
+threading.Thread(target=control_arm, args=(2,), daemon=True).start()  # 右臂
+
+# 保持主线程运行
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("程序已退出")
 
 ```
 
