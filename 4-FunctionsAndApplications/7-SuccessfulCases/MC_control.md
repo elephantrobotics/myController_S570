@@ -61,10 +61,10 @@ def clamp_angles(angles):
         low, high = JOINT_LIMITS[i]
 
         if angle < low:
-            print(f"⚠️ 关节{i + 1} 角度 {angle:.1f}° 低于下限 {low}°，已限制为 {low}°")
+            print(f"关节{i + 1} 角度 {angle:.1f}° 低于下限 {low}°，已限制为 {low}°")
             clamped.append(low)
         elif angle > high:
-            print(f"⚠️ 关节{i + 1} 角度 {angle:.1f}° 超过上限 {high}°，已限制为 {high}°")
+            print(f"关节{i + 1} 角度 {angle:.1f}° 超过上限 {high}°，已限制为 {high}°")
             clamped.append(high)
         else:
             clamped.append(angle)
@@ -88,7 +88,7 @@ def check_joints_limits(angles):
         low, high = JOINT_LIMITS[i]
 
         if angle < low or angle > high:
-            print(f"❌ 关节{i + 1} 角度 {angle:.1f}° 超出限位范围 [{low}°, {high}°]")
+            print(f"关节{i + 1} 角度 {angle:.1f}° 超出限位范围 [{low}°, {high}°]")
             all_valid = False
 
         # 钳制角度
@@ -124,14 +124,14 @@ def control_arm(arm):
                 # ========== 夹爪控制 ==========
                 if arm_data[10] == 1:
                     mercury_list[6] = GRIPPER_CLOSE
-                    print("🔧 夹爪闭合")
+                    print("夹爪闭合")
                 elif  arm_data[11] == 1:
                     mercury_list[6] = GRIPPER_OPEN
-                    print("🔧 夹爪张开")
+                    print("夹爪张开")
 
                 # 如果两个按钮同时按下，跳过本次
                 if len(arm_data) > 7 and arm_data[6] == 0 and arm_data[7] == 0:
-                    print("⚠️ 两个按钮同时按下，跳过本次")
+                    print("两个按钮同时按下，跳过本次")
                     time.sleep(0.01)
                     continue
 
@@ -153,14 +153,14 @@ def control_arm(arm):
 
                 if arm_data[10] == 1:
                     mercury_list[6] = GRIPPER_CLOSE
-                    print("🔧 夹爪闭合")
+                    print("夹爪闭合")
                 elif  arm_data[11] == 1:
                     mercury_list[6] = GRIPPER_OPEN
-                    print("🔧 夹爪张开")
+                    print("夹爪张开")
 
                 # 如果两个按钮同时按下，跳过本次
                 if len(arm_data) > 7 and arm_data[6] == 0 and arm_data[7] == 0:
-                    print("⚠️ 两个按钮同时按下，跳过本次")
+                    print("两个按钮同时按下，跳过本次")
                     time.sleep(0.01)
                     continue
             else:
@@ -173,9 +173,9 @@ def control_arm(arm):
             mc.set_joints_angle(clamped_list, 10)
 
             if all_valid:
-                print(f"✅ 指令已发送: {[round(a, 1) for a in clamped_list]}")
+                print(f"指令已发送: {[round(a, 1) for a in clamped_list]}")
             else:
-                print(f"⚠️ 已修正后发送: {[round(a, 1) for a in clamped_list]}")
+                print(f"已修正后发送: {[round(a, 1) for a in clamped_list]}")
 
             time.sleep(0.01)
 
